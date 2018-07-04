@@ -1,0 +1,35 @@
+{
+  "name": "koa-auto",
+  "version": "1.0.2",
+  "description": "koa脚手架",
+  "main": "app.js",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "koa": "^2.0.0",
+    "koa-nunjucks-2": "^3.0.2",
+    "koa-router": "^7.4.0",
+    "koa-compose": "^4.1.0",
+    "koa-static-plus": "^0.1.1",
+    "nodemon": "^1.0.0",
+    "mongoose": "^5.1.7",
+    "koa-body": "4.0.4",
+    "lodash": "^4.17.10",
+    "koa-helmet": "^4.0.0",
+    "pm2": "2.10.4",
+    "log4js": "2.10.0"
+  },
+  "scripts": {
+    "local": "RUN_ENV=local nodemon app.js",
+    "prod": "RUN_ENV=prod pm2 start app.js",
+    "stop": "pm2 stop app.js"
+  },
+  "keywords": [
+    "koa",
+    "koa-auto"
+  ],
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "author": "jj",
+  "license": "MIT"
+}
