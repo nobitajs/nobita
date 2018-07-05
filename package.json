@@ -1,6 +1,6 @@
 {
   "name": "koa-auto",
-  "version": "1.0.2",
+  "version": "1.0.0",
   "description": "koa脚手架",
   "main": "app.js",
   "dependencies": {
@@ -23,6 +23,10 @@
     "prod": "RUN_ENV=prod pm2 start app.js",
     "stop": "pm2 stop app.js"
   },
+  "repository": { 
+    "type" : "git", 
+    "url" : "https://github.com/iamtang/koa-auto.git"
+  },
   "keywords": [
     "koa",
     "koa-auto"
@@ -30,6 +34,10 @@
   "engines": {
     "node": ">=8.0.0"
   },
-  "author": "jj",
+  "bugs": {
+    "url": "https://github.com/iamtang/koa-auto/issues",
+    "email": "303907720@qq.com"
+  },
+  "author": "JJ",
   "license": "MIT"
 }
