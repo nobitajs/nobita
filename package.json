@@ -20,7 +20,7 @@
   },
   "scripts": {
     "local": "RUN_ENV=local nodemon app.js",
-    "prod": "RUN_ENV=prod pm2 start app.js",
+    "prod": "RUN_ENV=prod pm2 start app.js -i max",
     "stop": "pm2 stop app.js"
   },
   "repository": { 

@@ -3,37 +3,70 @@
 ```text
 koa
 ├── package.json
-├── app.js         // 入口文件
-├── nodemon.json   // nodemon配置文件
+├── app.js         
+├── nodemon.json 
 ├── app
-|   ├── router.js  // 路由入口
+|   ├── router.js 
 │   |  
-│   ├── router     // 子路由
-│   |     └── api  // 前端接口路由
+│   ├── router   
+│   |     └── api 
 │   |  
-│   ├── controller // 对用户的请求参数进行处理
-│   |   └── api    // 前端接口的controller
+│   ├── controller 
+│   |   └── api  
 │   |  
-│   ├── service    // 调用第三方api
+│   ├── service 
 │   |   
-│   ├── middleware // 中间件
+│   ├── middleware
 │   |   
-│   ├── modal      // 操作mongo数据库
+│   ├── modal    
 │   |   
-│   ├── logs      // 错误日志
+│   ├── logs    
 │   |   
-│   ├── view       // 前端资源
+│   ├── view     
 │   |   
-│   └── extend          // 扩展
-│       ├── helper.js   // 工具函数
-│       └── context.js  // ctx函数扩展
+│   └── extend        
+│       ├── helper.js   
+│       └── context.js 
 │   
-├── config              // node config文件
+├── config              
 |   ├── config.default.js
 │   ├── config.prod.js
 |   └── config.local.js
 └── 
 ```
+
+### 目录结构约定：
+- app.js 项目入口
+
+- app/router.js 路由入口
+
+- app/router/** 子路由
+
+- app/router/api/** 前端接口路由
+
+- app/controller/** 对用户的请求参数进行处理
+
+- app/controller/api/** 前端接口的controller
+
+- app/service/** 调用第三方api
+
+- app/middleware/*.js 中间件
+
+- app/modal 操作mongo数据库
+
+- app/extend/helper.js 工具函数
+
+- app/extend/context.js ctx函数扩展
+
+- config/config.default.js 通用配置文件
+
+- config/config.local.js 开发通用配置文件
+
+- config/config.prod.js 线上通用配置文件
+
+- view/** 前端目录
+
+- logs/** 日志文件
 
 ## 项目部署
 ```text

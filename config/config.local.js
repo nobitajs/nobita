@@ -13,6 +13,6 @@ module.exports = {
 
   logger: {
     path: './logs/',
-    level: 'OFF'
+    level: 'off'
   },
 }

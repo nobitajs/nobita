@@ -55,9 +55,12 @@ if (cluster.isMaster && process.env.RUN_ENV == 'prod') {
   for (let i = 0; i < numCPUs; i++) {
     cluster.fork();
   }
+  cluster.on('fork', function (worker) {
+    console.log(`[master] : fork worker ${worker.id}`);
+  });
 
   cluster.on('exit', function (worker, code, signal) {
-    console.log('worker ' + worker.process.pid + ' died');
+    console.log(`[master] : worker ${worker.id} died`);
   });
 } else {
   app
