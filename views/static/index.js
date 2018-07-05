@@ -18,7 +18,7 @@ $(function(){
      
     },
     success: function(res){
-      console.log(res, '--1-2-24--')
+      console.log(res)
     }
   });
 

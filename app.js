@@ -11,6 +11,7 @@ const config = require('./config/config.default');
 const context = require('./app/extend/context');
 const operate = require('./app/modal/operate');
 const logger = require('./logger');
+const $http = require('./http');
 const error = require('./app/middleware/error');
 const app = new Koa();
 const { service } = require('./reader')(app);
@@ -20,11 +21,12 @@ require('./app/router')(app);
 
 
 
+
 /** 中间件 */
 let middlewares = [];
 const middleware = async (ctx, next) => {
   config.middleware.map(async item => {
-    if (config[item].match.test(ctx.request.url)) {
+    if (!config[item] || config[item] && !config[item].match || config[item].match.test(ctx.request.url)) {
       if (!middlewares[item]) {
         middlewares[item] = require(`./app/middleware/${item}`);
       }
@@ -38,13 +40,18 @@ const middleware = async (ctx, next) => {
 const main = serve(config.view.path, config.view);
 
 /** 扩展ctx */
-app.context = Object.assign(app.context, context, {
+app.context = Object.assign(app.context, context, $http, {
   service,
   logger,
-  db: operate
 });
 
-if (cluster.isMaster) {
+if (config.mongoConf && config.mongoConf.url && config.mongoConf.tables){
+  app.context = Object.assign(app.context, {
+    db: operate()
+  });
+}
+
+if (cluster.isMaster && process.env.RUN_ENV == 'prod') {
   for (let i = 0; i < numCPUs; i++) {
     cluster.fork();
   }

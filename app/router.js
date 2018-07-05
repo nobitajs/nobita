@@ -6,6 +6,5 @@
 module.exports = app => {
   
   require('./router/index.js')(app);
-  require('./router/common.js')(app);
   require('./router/api.js')(app);
 }

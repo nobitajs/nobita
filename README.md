@@ -1,4 +1,5 @@
-# 目录结构
+# koa-auto
+## 目录结构
 ```text
 koa
 ├── package.json
@@ -34,7 +35,7 @@ koa
 └── 
 ```
 
-# 项目部署
+## 项目部署
 ```text
 1. 安装淘宝镜像： npm install -g cnpm --registry=https://registry.npm.taobao.org
 2. cnpm i
@@ -45,17 +46,17 @@ npm run stop   停止服务
 ```
 
 
-# logger 基于log4js
+## 日志打印(log4js)
 ```text
 ALL < TRACE < DEBUG < INFO < WARN < ERROR < FATAL < MARK < OFF
 ```
 官网：https://github.com/log4js-node/log4js-node
 
 
-# 前端模板 nunjucks
+## 前端模板(nunjucks)
 官网：http://mozilla.github.io/nunjucks/cn/api.html
 
-# mongoose语法
+## mongoose语法
 ```text
 |名称|说明|
 |-|-|
@@ -84,7 +85,11 @@ ALL < TRACE < DEBUG < INFO < WARN < ERROR < FATAL < MARK < OFF
 ```
 官网：http://mongoosejs.com/docs/api.html
 
-# 进程守护pm2
-```text
+## 进程守护(pm2)
 官网：http://pm2.keymetrics.io/
-```
+
+## http请求(axios)
+官网：https://www.axios.com/
+
+## 热部署(nodemon)
+官网：https://github.com/remy/nodemon
