@@ -1,6 +1,6 @@
 module.exports = {
   listen: {
-    port: 3000
+    port: 6001
   },
 
   mongoConf: {

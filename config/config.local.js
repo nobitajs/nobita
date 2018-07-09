@@ -1,8 +1,8 @@
 module.exports = {
   listen: {
-    port: 3000,
+    port: 6001,
     callback() {
-      console.log('http://localhost:3000');
+      console.log('http://localhost:6001');
     }
   },
 

@@ -9,18 +9,16 @@ const numCPUs = require('os').cpus().length;
 
 const config = require('./config/config.default');
 const context = require('./app/extend/context');
+const helper = require('./app/extend/helper');
 const operate = require('./app/modal/operate');
 const logger = require('./logger');
 const $http = require('./http');
-const error = require('./app/middleware/error');
+const notfound = require('./app/middleware/notfound');
 const app = new Koa();
 const { service } = require('./reader')(app);
 app.router = new Router();
 
 require('./app/router')(app);
-
-
-
 
 /** 中间件 */
 let middlewares = [];
@@ -35,14 +33,14 @@ const middleware = async (ctx, next) => {
   });
   await next();
 };
-
 /** 静态资源路径 */
 const main = serve(config.view.path, config.view);
-
 /** 扩展ctx */
-app.context = Object.assign(app.context, context, $http, {
+app.context = Object.assign(app.context, context, $http, config, {
   service,
+  helper,
   logger,
+  
 });
 
 if (config.mongoConf && config.mongoConf.url && config.mongoConf.tables){
@@ -70,6 +68,6 @@ if (cluster.isMaster && process.env.RUN_ENV == 'prod') {
     .use(nunjucks(config.temp))
     .use(middleware)
     .use(app.router.routes())
-    .use(error)
+    .use(notfound)
     .listen(config.listen.port, config.listen.callback);
 }

@@ -3,3 +3,4 @@
 .LSOverride
 node_modules/
 logs/
+.vscode/
