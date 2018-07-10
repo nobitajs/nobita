@@ -7,8 +7,8 @@ module.exports = {
   },
 
   mongoConf: {
-    url: 'mongodb://localhost:27017/dataApi',
-    tables: 'abc'
+    url: 'mongodb://localhost:27017/demo',
+    tables: 'tables'
   },
 
   logger: {

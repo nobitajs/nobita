@@ -9,7 +9,7 @@ koa
 |   ├── router.js 
 │   |  
 │   ├── router   
-│   |     └── api 
+│   |   └── api 
 │   |  
 │   ├── controller 
 │   |   └── api  
