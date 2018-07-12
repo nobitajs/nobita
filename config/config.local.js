@@ -6,11 +6,6 @@ module.exports = {
     }
   },
 
-  mongoConf: {
-    url: 'mongodb://localhost:27017/demo',
-    tables: 'tables'
-  },
-
   logger: {
     path: './logs/',
     level: 'off'

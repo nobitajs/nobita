@@ -17,6 +17,7 @@ const notfound = require('./app/middleware/notfound');
 const app = new Koa();
 const { service } = require('./reader')(app);
 app.router = new Router();
+app.config = config;
 
 require('./app/router')(app);
 
@@ -45,7 +46,7 @@ app.context = Object.assign(app.context, context, $http, config, {
 
 if (config.mongoConf && config.mongoConf.url && config.mongoConf.tables){
   app.context = Object.assign(app.context, {
-    db: operate()
+    db: operate(app)
   });
 }
 

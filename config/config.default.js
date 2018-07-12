@@ -24,6 +24,29 @@ config = _.merge({
     pathPrefix: '/static'
   },
 
+  mongoConf: {
+    url: 'mongodb://localhost:27017/demo',
+    tables: {
+      user: {
+        age: Number,
+        name: {
+          type: String,
+          unique: true
+        },
+      
+        createTime: {
+          type: Date,
+          default: Date.now
+        },
+      
+        updateTime: {
+            type: Date,
+            default: Date.now
+        }                 
+      }
+    }
+  },
+
   middleware: ['isLogin'],
   isLogin: {
     match: /\/index/

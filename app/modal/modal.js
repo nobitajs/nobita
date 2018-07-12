@@ -15,14 +15,12 @@ mongoose.connection.on("disconnected", function () {
   console.log("数据库断开");
 });
 
-const Schema = new mongoose.Schema({
-  age: Number,
-  name: {
-    type: String,
-    unique: true
-  }
-});
 
-const Model = mongoose.model(config.mongoConf.tables, Schema, config.mongoConf.tables);
+const model = [];
+for (let table in config.mongoConf.tables) {
+  let Schema = new mongoose.Schema(config.mongoConf.tables[table]);
+  model[table] = mongoose.model(table, Schema, table);
+}
 
-module.exports = Model;
+
+module.exports = model;
