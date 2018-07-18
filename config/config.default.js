@@ -14,9 +14,6 @@ config = _.merge({
   temp: {
     ext: 'html',
     path: path.join(__dirname, '../views'),
-    nunjucksConfig: {
-      trimBlocks: true
-    }
   },
 
   view: {
@@ -51,9 +48,6 @@ config = _.merge({
   isLogin: {
     match: /\/index/
   },
-
-  ...config
-
 }, config);
 
 module.exports = config;

@@ -35,7 +35,7 @@ module.exports = app => {
   });
 
   for (let i in serviceNewArr) {
-    service = Object.assign(service, _.setWith({}, serviceNewArr[i], require(fileNameArr['service'][i])(app), Object));
+    service = _.merge(service, _.setWith({}, serviceNewArr[i], require(fileNameArr['service'][i])(app), Object));
   }
 
   let ctrlNewArr = fileNameArr['controllers'].map((item) => {
@@ -45,7 +45,7 @@ module.exports = app => {
   });
 
   for (let i in ctrlNewArr) {
-    controllers = Object.assign(controllers, _.setWith({}, ctrlNewArr[i], require(fileNameArr['controllers'][i]), Object));
+    controllers = _.merge(controllers, _.setWith({}, ctrlNewArr[i], require(fileNameArr['controllers'][i]), Object));
   }
   app.controllers = controllers;
   return {

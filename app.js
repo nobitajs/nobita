@@ -1,5 +1,5 @@
 const Koa = require('koa');
-const nunjucks = require('koa-nunjucks-2');
+const nunjucks = require('./nunjucks');
 const serve = require('koa-static-plus');
 const koaBody = require('koa-body');
 const helmet = require("koa-helmet");
@@ -37,7 +37,7 @@ const middleware = async (ctx, next) => {
 /** 静态资源路径 */
 const main = serve(config.view.path, config.view);
 /** 扩展ctx */
-app.context = Object.assign(app.context, context, $http, config, {
+app.context = Object.assign(app.context, context, $http, config, {nunjucks}, {
   service,
   helper,
   logger,
@@ -66,7 +66,6 @@ if (cluster.isMaster && process.env.RUN_ENV == 'prod') {
     .use(helmet())
     .use(main)
     .use(koaBody())
-    .use(nunjucks(config.temp))
     .use(middleware)
     .use(app.router.routes())
     .use(notfound)
