@@ -1,4 +1,9 @@
 # koa-auto
+## 使用方法
+```text
+$ npm install koa-auto -g
+$ npm init
+```
 ## 目录结构
 ```text
 koa

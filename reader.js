@@ -1,7 +1,6 @@
 
 const fs = require('fs');
 const path = require('path');
-const _ = require('lodash');
 let fileNameArr = {
   service: [],
   controllers: []
@@ -35,7 +34,7 @@ module.exports = app => {
   });
 
   for (let i in serviceNewArr) {
-    service = _.merge(service, _.setWith({}, serviceNewArr[i], require(fileNameArr['service'][i])(app), Object));
+    service = app._.merge(service, app._.setWith({}, serviceNewArr[i], require(fileNameArr['service'][i])(app), Object));
   }
 
   let ctrlNewArr = fileNameArr['controllers'].map((item) => {
@@ -45,7 +44,7 @@ module.exports = app => {
   });
 
   for (let i in ctrlNewArr) {
-    controllers = _.merge(controllers, _.setWith({}, ctrlNewArr[i], require(fileNameArr['controllers'][i]), Object));
+    controllers = app._.merge(controllers, app._.setWith({}, ctrlNewArr[i], require(fileNameArr['controllers'][i]), Object));
   }
   app.controllers = controllers;
   return {

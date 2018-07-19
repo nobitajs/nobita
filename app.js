@@ -5,6 +5,7 @@ const koaBody = require('koa-body');
 const helmet = require("koa-helmet");
 const Router = require('koa-router');
 const cluster = require('cluster');
+
 const numCPUs = require('os').cpus().length;
 
 const config = require('./config/config.default');
@@ -15,6 +16,7 @@ const logger = require('./logger');
 const $http = require('./http');
 const notfound = require('./app/middleware/notfound');
 const app = new Koa();
+app._ = require('lodash');
 const { service } = require('./reader')(app);
 app.router = new Router();
 app.config = config;
