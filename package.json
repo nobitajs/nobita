@@ -16,11 +16,12 @@
     "lodash": "^4.17.10",
     "koa-helmet": "^4.0.0",
     "pm2": "2.10.4",
-    "log4js": "2.10.0"
+    "log4js": "2.10.0",
+    "cross-env": "^5.0.0"
   },
   "scripts": {
-    "local": "RUN_ENV=local nodemon app.js",
-    "prod": "RUN_ENV=prod pm2 start app.js -i max",
+    "local": "cross-env RUN_ENV=local nodemon app.js",
+    "prod": "cross-env RUN_ENV=prod pm2 start app.js -i max",
     "stop": "pm2 stop app.js"
   },
   "repository": { 

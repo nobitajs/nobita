@@ -3,6 +3,8 @@
 ```text
 $ npm install koa-auto -g
 $ npm init
+$ cd 项目名
+$ npm run local
 ```
 ## 目录结构
 ```text
