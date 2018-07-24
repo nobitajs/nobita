@@ -37,9 +37,11 @@ const middleware = async (ctx, next) => {
   await next();
 };
 /** 静态资源路径 */
-const main = serve(config.view.path, config.view);
+const main = serve(config.static.path, config.static);
 /** 扩展ctx */
-app.context = Object.assign(app.context, context, $http, config, {nunjucks}, {
+app.context = Object.assign(app.context, context, $http, {
+  config,
+  nunjucks,
   service,
   helper,
   logger,

@@ -1,11 +1,5 @@
 # koa-auto
-## 使用方法
-```text
-$ npm install koa-auto -g
-$ npm init
-$ cd 项目名
-$ npm run local
-```
+
 ## 目录结构
 ```text
 koa
@@ -77,12 +71,13 @@ koa
 
 ## 项目部署
 ```text
-1. 安装淘宝镜像： npm install -g cnpm --registry=https://registry.npm.taobao.org
-2. cnpm i
-3. 启动服务
-npm run local  启动本地开发
-npm run prod   启动线上命令
-npm run stop   停止服务
+$ npm install koa-auto -g
+$ npm init
+$ cd 项目名
+$ npm install
+$ npm run local  启动本地开发
+$ npm run prod   启动线上命令
+$ npm run stop   停止服务
 ```
 
 
@@ -133,3 +128,86 @@ ALL < TRACE < DEBUG < INFO < WARN < ERROR < FATAL < MARK < OFF
 
 ## 热部署(nodemon)
 官网：https://github.com/remy/nodemon
+
+## 配置文件
+```text
+> config.default.js  // 通用配置
+> config.local.js    // 本地开发配置
+> config.prod.js     // 线上配置
+
+```
+
+> 端口监听
+```js
+{
+  listen: { 
+    port: 6001,   // 端口
+    callback() {  
+      // 监听端口回调
+    }
+  }
+}
+```
+> 模板
+```js
+{
+  temp: {
+    ext: 'html',  // 模板后缀
+    path: path.join(__dirname, '../views'),  // 模板路径
+  }
+}
+```
+> 静态资源
+```js
+{
+  static: {
+    path: path.join(__dirname, '../views/static'), // 静态资源路径
+    pathPrefix: '/static' // 静态资源别名
+  }
+}
+```
+> mongodb（Schema）
+```js
+{
+  mongoConf: {
+    url: 'mongodb://localhost:27017/数据库',
+    '表名': {
+      user: {
+        age: Number,
+        name: {
+          type: String,
+          unique: true
+        },
+      
+        createTime: {
+          type: Date,
+          default: Date.now
+        },
+      
+        updateTime: {
+            type: Date,
+            default: Date.now
+        }                 
+      }
+    }
+  }
+}
+```
+> 中间件
+```js
+{
+  middleware: ['isLogin'], // 中间件名称
+  isLogin: {
+    match: /\/index/ // 路由匹配规则
+  }
+}
+```
+> log日志
+```js
+{
+  logger: {
+    path: './logs/', // 日志位置
+    level: 'off'     // 日志打印等级
+  }
+}
+```
