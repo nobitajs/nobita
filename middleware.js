@@ -1,11 +1,13 @@
 
 const fs = require('fs');
 const path = require('path');
+const config = require('./config/config.default');
+const _ = require('lodash');
+
+
 let fileNameArr = {
   service: [],
-  controllers: []
 }
-
 // 读取service文件夹
 const readdir = (filePath, key) => {
   let data = fs.readdirSync(path.join(__dirname, filePath));
@@ -19,35 +21,32 @@ const readdir = (filePath, key) => {
   });
 };
 
-
-module.exports = app => {
+/** 中间件 */
+let middlewares = [];
+module.exports = async (ctx, next) => {
   let service = {};
-  let controllers = {};
-
   readdir('./app/service/', 'service');
-  readdir('./app/controllers/', 'controllers');
 
+  // service
   let serviceNewArr = fileNameArr['service'].map((item) => {
     if (item.split('./app/service/')[1].indexOf('.js') != -1) {
       return item.split('./app/service/')[1].split('.js')[0].replace(/\//g, '.');
     }
   });
-
   for (let i in serviceNewArr) {
-    service = app._.merge(service, app._.setWith({}, serviceNewArr[i], require(fileNameArr['service'][i])(app), Object));
+    service = _.merge(service, _.setWith({}, serviceNewArr[i], require(fileNameArr['service'][i])(ctx), Object));
   }
-
-  let ctrlNewArr = fileNameArr['controllers'].map((item) => {
-    if (item.split('./app/controllers/')[1].indexOf('.js') != -1) {
-      return item.split('./app/controllers/')[1].split('.js')[0].replace(/\//g, '.');
+  ctx = _.merge(ctx, {service});
+  // 中间件
+  config.middleware.map(async item => {
+    if (!config[item] || config[item] && !config[item].match || config[item].match.test(ctx.request.url)) {
+      if (!middlewares[item]) {
+        middlewares[item] = require(`./app/middleware/${item}`);
+      }
+      middlewares[item](ctx, config[item]);
     }
   });
 
-  for (let i in ctrlNewArr) {
-    controllers = app._.merge(controllers, app._.setWith({}, ctrlNewArr[i], require(fileNameArr['controllers'][i]), Object));
-  }
-  app.controllers = controllers;
-  return {
-    service
-  };
-}
+
+  await next();
+};

@@ -16,7 +16,7 @@ config = _.merge({
     path: path.join(__dirname, '../views'),
   },
 
-  view: {
+  static: {
     path: path.join(__dirname, '../views/static'),
     pathPrefix: '/static'
   },

@@ -83,7 +83,7 @@ $ npm run stop   停止服务
 
 ## 日志打印(log4js)
 ```text
-ALL < TRACE < DEBUG < INFO < WARN < ERROR < FATAL < MARK < OFF
+
 ```
 官网：https://github.com/log4js-node/log4js-node
 
@@ -207,7 +207,7 @@ ALL < TRACE < DEBUG < INFO < WARN < ERROR < FATAL < MARK < OFF
 {
   logger: {
     path: './logs/', // 日志位置
-    level: 'off'     // 日志打印等级
+    level: 'off'     // 日志打印等级 | ALL < TRACE < DEBUG < INFO < WARN < ERROR < FATAL < MARK < OFF
   }
 }
 ```

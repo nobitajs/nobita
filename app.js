@@ -14,38 +14,23 @@ const helper = require('./app/extend/helper');
 const operate = require('./app/modal/operate');
 const logger = require('./logger');
 const $http = require('./http');
+const middleware = require('./middleware');
 const notfound = require('./app/middleware/notfound');
 const app = new Koa();
 app._ = require('lodash');
-const { service } = require('./reader')(app);
+app.controllers = require('./controllers');
 app.router = new Router();
 app.config = config;
-
 require('./app/router')(app);
 
-/** 中间件 */
-let middlewares = [];
-const middleware = async (ctx, next) => {
-  config.middleware.map(async item => {
-    if (!config[item] || config[item] && !config[item].match || config[item].match.test(ctx.request.url)) {
-      if (!middlewares[item]) {
-        middlewares[item] = require(`./app/middleware/${item}`);
-      }
-      middlewares[item](ctx, config[item]);
-    }
-  });
-  await next();
-};
 /** 静态资源路径 */
 const main = serve(config.static.path, config.static);
 /** 扩展ctx */
 app.context = Object.assign(app.context, context, $http, {
   config,
   nunjucks,
-  service,
   helper,
   logger,
-  
 });
 
 if (config.mongoConf && config.mongoConf.url && config.mongoConf.tables){
