@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const config = require('../../config/config.default');
+const config = require('./config/config.default');
 mongoose.connect(config.mongoConf.url);
 
 // 连接失败

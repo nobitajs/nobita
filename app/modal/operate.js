@@ -1,11 +1,10 @@
 module.exports = app => {
-  const modal = require("./modal.js");
   let _f = {}
   for (let table in app.config.mongoConf.tables) {
     _f[table] = {
       find(sql) {
         return new Promise((resolve, reject) => {
-          modal[table].find(sql, (err, res) => {
+          app.mongo[table].find(sql, (err, res) => {
             if (err) {
               console.log(err);
               resolve({
@@ -32,7 +31,7 @@ module.exports = app => {
             updateTime: (+new Date() + 28800000),
             createTime: (+new Date() + 28800000)
           })
-          modal[table].insertMany(sql, function (err, res) {
+          app.mongo[table].insertMany(sql, function (err, res) {
             if (err) {
               console.log(err);
               resolve({
@@ -57,7 +56,7 @@ module.exports = app => {
       update(sql, newDate) {
         return new Promise((resolve, reject) => {
           newDate = Object.assign(newDate, { updateTime: (+new Date() + 28800000) })
-          modal[table].update(sql, newDate, (err, res) => {
+          app.mongo[table].update(sql, newDate, (err, res) => {
             if (err) {
               console.log(err);
               resolve({
@@ -78,7 +77,7 @@ module.exports = app => {
 
       remove(sql) {
         return new Promise((resolve, reject) => {
-          modal[table].remove(sql, (err, res) => {
+          app.mongo[table].remove(sql, (err, res) => {
             if (err) {
               console.log(err);
               resolve({
