@@ -17,7 +17,6 @@ const $http = require('./http');
 const middleware = require('./middleware');
 const notfound = require('./app/middleware/notfound');
 const app = new Koa();
-app._ = require('lodash');
 app.controllers = require('./controllers');
 app.router = new Router();
 app.config = config;

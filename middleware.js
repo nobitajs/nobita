@@ -3,38 +3,42 @@ const fs = require('fs');
 const path = require('path');
 const config = require('./config/config.default');
 const _ = require('lodash');
+let dir = './app/service/';
+let ext = '.js';
+let first = true;
+let fileNameArr = [];
+let middlewares = [];
 
-
-let fileNameArr = {
-  service: [],
-}
 // 读取service文件夹
-const readdir = (filePath, key) => {
+const readdir = (filePath) => {
+
   let data = fs.readdirSync(path.join(__dirname, filePath));
+  first = false;
   data.map((i) => {
     let newfilePath = `${filePath}/${i}`.replace('//', '/');
     if (i.indexOf('.') == -1) {
-      readdir(newfilePath, key);
-    } else {
-      fileNameArr[key].push(newfilePath);
+      readdir(newfilePath);
+    } else if (fileNameArr.indexOf(newfilePath) == -1) {
+      fileNameArr.push(newfilePath);
     }
   });
 };
 
 /** 中间件 */
-let middlewares = [];
+
 module.exports = async (ctx, next) => {
   let service = {};
-  readdir('./app/service/', 'service');
 
+  // 只有第一次访问读文件
+  first && readdir(dir);
   // service
-  let serviceNewArr = fileNameArr['service'].map((item) => {
-    if (item.split('./app/service/')[1].indexOf('.js') != -1) {
-      return item.split('./app/service/')[1].split('.js')[0].replace(/\//g, '.');
+  let serviceNewArr = fileNameArr.map((item) => {
+    if (item.split(dir)[1].indexOf(ext) != -1) {
+      return item.split(dir)[1].split(ext)[0].replace(/\//g, '.');
     }
   });
   for (let i in serviceNewArr) {
-    service = _.merge(service, _.setWith({}, serviceNewArr[i], require(fileNameArr['service'][i])(ctx), Object));
+    service = _.merge(service, _.setWith({}, serviceNewArr[i], require(fileNameArr[i])(ctx), Object));
   }
   ctx = _.merge(ctx, {service});
   // 中间件

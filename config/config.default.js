@@ -3,6 +3,7 @@ const _ = require('lodash');
 let config = require('./config.local');
 
 const RUN_ENV = process.env.RUN_ENV;
+const argv = process.argv[2];
 
 if (RUN_ENV == 'prod') {
   config = require('./config.prod');
@@ -11,6 +12,7 @@ console.log(`env:${RUN_ENV}`);
 
 config = _.merge({
   env: RUN_ENV,
+  argv,
   temp: {
     ext: 'html',
     path: path.join(__dirname, '../views'),

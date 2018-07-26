@@ -13,7 +13,7 @@ const readdir = (filePath, key) => {
     let newfilePath = `${filePath}/${i}`.replace('//', '/');
     if (i.indexOf('.') == -1) {
       readdir(newfilePath, key);
-    } else {
+    } else if (fileNameArr['controllers'].indexOf(newfilePath) == -1) {
       fileNameArr[key].push(newfilePath);
     }
   });
@@ -21,6 +21,7 @@ const readdir = (filePath, key) => {
 
 let controllers = {};
 readdir('./app/controllers/', 'controllers');
+
 let ctrlNewArr = fileNameArr['controllers'].map((item) => {
   if (item.split('./app/controllers/')[1].indexOf('.js') != -1) {
     return item.split('./app/controllers/')[1].split('.js')[0].replace(/\//g, '.');
