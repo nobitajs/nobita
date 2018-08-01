@@ -1,6 +1,4 @@
 
-const index = require('../controllers/index');
-
 module.exports = app => {
-  app.router.get('/', index);
+  app.router.get('/', app.controllers.index.index);
 }
