@@ -14,6 +14,7 @@ const helper = require('./app/extend/helper');
 const operate = require('./app/modal/operate');
 const logger = require('./logger');
 const $http = require('./http');
+const service = require('./service');
 const middleware = require('./middleware');
 const notfound = require('./app/middleware/notfound');
 const app = new Koa();
@@ -21,6 +22,7 @@ app.mongo = require('./mongo');
 app.controllers = require('./controllers');
 app.router = new Router();
 app.config = config;
+middleware(app);
 require('./app/router')(app);
 
 /** 静态资源路径 */
@@ -55,7 +57,7 @@ if (cluster.isMaster && process.env.RUN_ENV == 'prod') {
     .use(helmet())
     .use(main)
     .use(koaBody())
-    .use(middleware)
+    .use(service)
     .use(app.router.routes())
     .use(notfound)
     .listen(config.listen.port, config.listen.callback);

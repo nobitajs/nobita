@@ -50,6 +50,7 @@ config = _.merge({
   isLogin: {
     match: /\/index/
   },
+
 }, config);
 
 module.exports = config;
