@@ -28,8 +28,8 @@ module.exports = app => {
       insert(sql) {
         return new Promise((resolve, reject) => {
           sql = Object.assign(sql, {
-            updateTime: (+new Date() + 28800000),
-            createTime: (+new Date() + 28800000)
+            updateTime: (+new Date()),
+            createTime: (+new Date())
           })
           app.mongo[table].insertMany(sql, function (err, res) {
             if (err) {
@@ -55,7 +55,7 @@ module.exports = app => {
 
       update(sql, newDate) {
         return new Promise((resolve, reject) => {
-          newDate = Object.assign(newDate, { updateTime: (+new Date() + 28800000) })
+          newDate = Object.assign(newDate, { updateTime: (+new Date()) })
           app.mongo[table].update(sql, newDate, (err, res) => {
             if (err) {
               console.log(err);
