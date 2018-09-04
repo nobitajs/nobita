@@ -1,0 +1,10 @@
+{
+  "name"        : "demo",  
+  "script"      : "app.js", 
+  "cwd"         : "./",  
+  "error_file" : "./logs/app-err.log",  
+  "out_file"   : "./logs/app-out.log", 
+  "env": {
+      "RUN_ENV": "prod"
+  }
+}

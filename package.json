@@ -22,8 +22,8 @@
   },
   "scripts": {
     "local": "cross-env RUN_ENV=local nodemon app.js",
-    "prod": "cross-env RUN_ENV=prod pm2 start app.js -i max",
-    "stop": "pm2 stop app.js"
+    "prod": "pm2 start run.json",
+    "stop": "pm2 stop demo"
   },
   "repository": {
     "type": "git",
