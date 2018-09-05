@@ -32,16 +32,16 @@ config = _.merge({
           type: String,
           unique: true
         },
-      
+
         createTime: {
           type: Date,
           default: Date.now
         },
-      
+
         updateTime: {
-            type: Date,
-            default: Date.now
-        }                 
+          type: Date,
+          default: Date.now
+        }
       }
     }
   },

@@ -1,10 +1,11 @@
 module.exports = app => {
+  const modal = require("./modal.js");
   let _f = {}
   for (let table in app.config.mongoConf.tables) {
     _f[table] = {
-      find(sql) {
+      find(sql, felt) {
         return new Promise((resolve, reject) => {
-          app.mongo[table].find(sql, (err, res) => {
+          modal[table].find(sql, null, felt, (err, res) => {
             if (err) {
               console.log(err);
               resolve({
@@ -25,13 +26,42 @@ module.exports = app => {
         });
       },
 
+      insertMany(sql) {
+        return new Promise((resolve, reject) => {
+          for (let i in sql) {
+            sql[i] = _.merge(sql[i], {
+              updateTime: (+new Date()),
+              createTime: (+new Date())
+            })
+          }
+          modal[table].insertMany(sql, function (err, res) {
+            if (err) {
+              console.log(err);
+              resolve({
+                code: 201,
+                data: {},
+                msg: `fail: ${err}`
+              });
+            }
+            else {
+              resolve({
+                code: 200,
+                data: res,
+                msg: 'success'
+              });
+            }
+
+          });
+        });
+      },
+
       insert(sql) {
         return new Promise((resolve, reject) => {
-          sql = Object.assign(sql, {
+          sql = _.merge(sql, {
             updateTime: (+new Date()),
             createTime: (+new Date())
           })
-          app.mongo[table].insertMany(sql, function (err, res) {
+          modal[table].insertMany(sql, function (err, res) {
             if (err) {
               console.log(err);
               resolve({
@@ -55,8 +85,8 @@ module.exports = app => {
 
       update(sql, newDate) {
         return new Promise((resolve, reject) => {
-          newDate = Object.assign(newDate, { updateTime: (+new Date()) })
-          app.mongo[table].update(sql, newDate, (err, res) => {
+          newDate = _.merge(newDate, { updateTime: (+new Date()) })
+          modal[table].update(sql, newDate, {upsert: true}, (err, res) => {
             if (err) {
               console.log(err);
               resolve({
@@ -77,7 +107,7 @@ module.exports = app => {
 
       remove(sql) {
         return new Promise((resolve, reject) => {
-          app.mongo[table].remove(sql, (err, res) => {
+          modal[table].remove(sql, (err, res) => {
             if (err) {
               console.log(err);
               resolve({
