@@ -1,7 +1,7 @@
 {
-  "name": "koa-auto",
+  "name": "nobita",
   "version": "1.0.0",
-  "description": "koa脚手架",
+  "description": "Nobita",
   "main": "app.js",
   "dependencies": {
     "cross-env": "^5.0.0",
@@ -18,17 +18,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/iamtang/koa-auto.git"
+    "url": "https://github.com/iamtang/nobita.git"
   },
   "keywords": [
     "koa",
-    "koa-auto"
+    "nobita"
   ],
   "engines": {
     "node": ">=8.0.0"
   },
   "bugs": {
-    "url": "https://github.com/iamtang/koa-auto/issues",
+    "url": "https://github.com/iamtang/nobita/issues",
     "email": "303907720@qq.com"
   },
   "author": "JJ",
