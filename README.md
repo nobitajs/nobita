@@ -1,5 +1,5 @@
-# nobita
-
+# Nobita
+![avatar](https://api.iamtang.com/images/d8ade17286.jpg)
 ## 目录结构
 ```text
 koa
@@ -80,10 +80,18 @@ $ npm run prod   启动线上命令
 $ npm run stop   停止服务
 ```
 
+## 内置对象
+- server: 调用第三方api
+- curl: http请求
+- helper: 工具函数
+- logger: 日志打印
+- db: mongo数据库操作
+- request: 获取到当前请求的 Request
+
 
 ## 日志打印(log4js)
 ```text
-
+ALL < TRACE < DEBUG < INFO < WARN < ERROR < FATAL < MARK < OFF
 ```
 官网：https://github.com/log4js-node/log4js-node
 
