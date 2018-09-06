@@ -87,6 +87,7 @@ $ npm run stop   停止服务
 - logger: 日志打印
 - db: mongo数据库操作
 - request: 获取到当前请求的 Request
+- nunjucks: 模板引擎
 
 
 ## 日志打印(log4js)

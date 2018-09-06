@@ -1,11 +1,11 @@
 module.exports = app => {
-  const modal = require("./modal.js");
+  const modal = require("koa-auto-mongo");
   let _f = {}
   for (let table in app.config.mongoConf.tables) {
     _f[table] = {
-      find(sql, felt) {
+      find(sql, data) {
         return new Promise((resolve, reject) => {
-          modal[table].find(sql, null, felt, (err, res) => {
+          modal[table].find(sql, null, data, (err, res) => {
             if (err) {
               console.log(err);
               resolve({
@@ -83,7 +83,7 @@ module.exports = app => {
 
       },
 
-      update(sql, newDate) {
+      update(sql, newDate, data) {
         return new Promise((resolve, reject) => {
           newDate = _.merge(newDate, { updateTime: (+new Date()) })
           modal[table].update(sql, newDate, {upsert: true}, (err, res) => {

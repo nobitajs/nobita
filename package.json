@@ -6,7 +6,7 @@
   "dependencies": {
     "cross-env": "^5.0.0",
     "nobita": "0.0.6",
-    "mongoose": "5.1.7",
+    "koa-auto-mongo": "0.0.1",
     "lodash": "4.17.10",
     "nodemon": "1.0.0",
     "pm2": "2.10.4"
