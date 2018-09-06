@@ -1,5 +1,5 @@
 # Nobita
-![avatar](https://api.iamtang.com/images/d8ade17286.jpg)
+![avatar](https://api.iamtang.com/images/bf47d0f9d72a6059be3961992234349b023bbad5.jpg)
 ## 目录结构
 ```text
 koa
