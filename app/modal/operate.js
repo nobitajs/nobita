@@ -1,5 +1,5 @@
 module.exports = app => {
-  const modal = require("koa-auto-mongo")(app);
+  const modal = require("nobita-mongo")(app);
   let _f = {}
   for (let table in app.config.mongoConf.tables) {
     _f[table] = {
