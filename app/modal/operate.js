@@ -1,5 +1,5 @@
 module.exports = app => {
-  const modal = require("koa-auto-mongo");
+  const modal = require("koa-auto-mongo")(app);
   let _f = {}
   for (let table in app.config.mongoConf.tables) {
     _f[table] = {
