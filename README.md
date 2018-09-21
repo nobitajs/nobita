@@ -1,4 +1,4 @@
-# Nobita
+# ![avatar](https://api.iamtang.com/images/nobita.png)Nobita
 ![avatar](https://api.iamtang.com/images/bf47d0f9d72a6059be3961992234349b023bbad5.jpg)
 ## 目录结构
 ```text
@@ -205,14 +205,14 @@ exports.logger = {
 ```js
 exports.session = {
   keys: [key],
-  key: 'NOBITA_SESSION', /** (string) cookie key (default is koa:sess) */
-  maxAge: (86400000 * 7),
-  overwrite: true, /** (boolean) can overwrite or not (default true) */
-  httpOnly: true, /** (boolean) httpOnly or not (default true) */
-  signed: true, /** (boolean) signed or not (default true) */
-  rolling: false, /** (boolean) Force a session identifier cookie to be set on every response. The expiration is reset to the original maxAge, resetting the expiration countdown. (default is false) */
-  renew: false, /** (boolean) renew session when session is nearly expired, so we can always keep user logged in. (default is false)*/
-}
+  key: 'NOBITA_SESSION', //cookie key (default is koa:sess)
+  maxAge: (86400000 * 7), // cookie的过期时间 maxAge in ms (default is 1 days)
+  overwrite: true, //是否可以overwrite    (默认default true)
+  httpOnly: true, //cookie是否只有服务器端可以访问 httpOnly or not (default true)
+  signed: true, //签名默认true
+  rolling: false, //在每次请求时强行设置cookie，这将重置cookie过期时间（默认：false）
+  renew: false, //(boolean) renew session when session is nearly expired
+  
 ```
 
 
