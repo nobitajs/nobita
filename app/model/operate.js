@@ -1,11 +1,11 @@
 module.exports = app => {
-  const modal = require("nobita-mongo")(app);
+  const model = require("nobita-mongo")(app);
   let _f = {}
   for (let table in app.config.mongoConf.tables) {
     _f[table] = {
       find(sql, data) {
         return new Promise((resolve, reject) => {
-          modal[table].find(sql, null, data, (err, res) => {
+          model[table].find(sql, null, data, (err, res) => {
             if (err) {
               console.log(err);
               resolve({
@@ -34,7 +34,7 @@ module.exports = app => {
               createTime: (+new Date())
             })
           }
-          modal[table].insertMany(sql, function (err, res) {
+          model[table].insertMany(sql, function (err, res) {
             if (err) {
               console.log(err);
               resolve({
@@ -61,7 +61,7 @@ module.exports = app => {
             updateTime: (+new Date()),
             createTime: (+new Date())
           })
-          modal[table].insertMany(sql, function (err, res) {
+          model[table].insertMany(sql, function (err, res) {
             if (err) {
               console.log(err);
               resolve({
@@ -86,7 +86,7 @@ module.exports = app => {
       update(sql, newDate, data) {
         return new Promise((resolve, reject) => {
           newDate = _.merge(newDate, { updateTime: (+new Date()) })
-          modal[table].update(sql, newDate, {upsert: true}, (err, res) => {
+          model[table].update(sql, newDate, {upsert: true}, (err, res) => {
             if (err) {
               console.log(err);
               resolve({
@@ -107,7 +107,7 @@ module.exports = app => {
 
       remove(sql) {
         return new Promise((resolve, reject) => {
-          modal[table].remove(sql, (err, res) => {
+          model[table].remove(sql, (err, res) => {
             if (err) {
               console.log(err);
               resolve({
