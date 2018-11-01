@@ -95,11 +95,11 @@ $ npm run stop   停止服务
 ```text
 ALL < TRACE < DEBUG < INFO < WARN < ERROR < FATAL < MARK < OFF
 ```
-官网：https://github.com/log4js-node/log4js-node
+官网：[https://github.com/log4js-node/log4js-node](https://github.com/log4js-node/log4js-node)
 
 
 ## 前端模板(nunjucks)
-官网：http://mozilla.github.io/nunjucks/cn/api.html
+官网：[http://mozilla.github.io/nunjucks/cn/api.html](http://mozilla.github.io/nunjucks/cn/api.html)
 
 ## mongoose语法
 ```text
@@ -128,16 +128,16 @@ ALL < TRACE < DEBUG < INFO < WARN < ERROR < FATAL < MARK < OFF
 |$centerSphere|范围查询，球形范围（基于LBS）|
 |$slice|查询字段集合中的元素（比如从第几个之后，第N到第M个元素|
 ```
-官网：http://mongoosejs.com/docs/api.html
+官网：[http://mongoosejs.com/docs/api.html](http://mongoosejs.com/docs/api.html)
 
 ## 进程守护(pm2)
-官网：http://pm2.keymetrics.io/
+官网：[http://pm2.keymetrics.io/](http://pm2.keymetrics.io/)
 
 ## http请求(axios)
-官网：https://www.axios.com/
+官网：[https://www.axios.com/](https://www.axios.com/)
 
 ## 热部署(nodemon)
-官网：https://github.com/remy/nodemon
+官网：[https://github.com/remy/nodemon](https://github.com/remy/nodemon)
 
 ## 配置文件
 ```text
