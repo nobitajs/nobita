@@ -71,8 +71,8 @@ koa
 
 ## 项目部署
 ```text
-$ npm install koa-auto -g
-$ npm init
+$ npm install nobita-cli -g
+$ nobita-cli init
 $ cd 项目名
 $ npm install
 $ npm run local  启动本地开发
