@@ -4,6 +4,21 @@
 ## 介绍
 Nobeta 是一个基于Koa而诞生的一款框架。
 
+## 快速初始化
+```text
+$ npm install nobita-cli -g
+$ nobita-cli init
+$ cd 项目名
+$ npm install
+```
+
+## 启动项目
+```text
+$ npm run local  启动本地开发
+$ npm run prod   启动线上命令
+$ npm run stop   停止服务
+```
+
 ## 目录结构
 ```text
 koa
@@ -73,16 +88,6 @@ koa
 
 - logs/** 日志文件
 
-## 项目部署
-```text
-$ npm install nobita-cli -g
-$ nobita-cli init
-$ cd 项目名
-$ npm install
-$ npm run local  启动本地开发
-$ npm run prod   启动线上命令
-$ npm run stop   停止服务
-```
 
 ## 内置对象
 - server: 调用第三方api
