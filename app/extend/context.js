@@ -1,5 +1,6 @@
 module.exports = {
-  abc() {
-    console.log(this);
+  getUrl () {
+    let ctx = this;
+    console.log(ctx.request.url);
   }
 }

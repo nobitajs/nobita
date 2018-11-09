@@ -35,11 +35,6 @@ config = {
     renew: false, /** (boolean) renew session when session is nearly expired, so we can always keep user logged in. (default is false)*/
   },
 
-  middleware: ['isLogin'],
-  isLogin: {
-    match: /\/index/
-  },
-
 };
 
 module.exports = config;
