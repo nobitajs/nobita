@@ -1,5 +1,9 @@
 # ![avatar](https://api.iamtang.com/images/nobita.png)Nobita
 ![avatar](https://api.iamtang.com/images/bf47d0f9d72a6059be3961992234349b023bbad5.jpg)
+
+## 介绍
+Nobeta 是一个基于Koa而诞生的一款框架。
+
 ## 目录结构
 ```text
 koa
