@@ -38,8 +38,6 @@ koa
 │   |   
 │   ├── middleware
 │   |   
-│   ├── modal    
-│   |   
 │   ├── logs    
 │   |   
 │   ├── view     
@@ -71,8 +69,6 @@ koa
 - app/service/** 调用第三方api
 
 - app/middleware/*.js 中间件
-
-- app/modal 操作mongo数据库
 
 - app/extend/helper.js 工具函数
 
