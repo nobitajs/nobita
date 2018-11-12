@@ -109,7 +109,6 @@ ALL < TRACE < DEBUG < INFO < WARN < ERROR < FATAL < MARK < OFF
 ## mongoose语法
 ```text
 |名称|说明|
-|-|-|
 |$or|或关系|
 |$nor|或关系取反|
 |$gt|大于|
@@ -132,6 +131,42 @@ ALL < TRACE < DEBUG < INFO < WARN < ERROR < FATAL < MARK < OFF
 |$center|范围醒询，圆形范围（基于LBS）|
 |$centerSphere|范围查询，球形范围（基于LBS）|
 |$slice|查询字段集合中的元素（比如从第几个之后，第N到第M个元素|
+```
+
+### 例子
+```js
+// 查询数据
+await ctx.db.table.find({ name: 'Nobita' });
+
+// 插入数据
+await ctx.db.table.insert({ name: 'Nobita' });
+
+// 插入多条数据
+await ctx.db.table.insertMany([
+  { name: 'Nobita' },
+  { name: 'Koa' }
+]);
+
+// 修改数据
+await ctx.db.table.update({ name: 'Nobita' }, { author: 'JJ' }, [options]);
+
+/* [options]
+- safe (boolean)： 默认为true。安全模式。
+- upsert (boolean)： 默认为false。如果不存在则创建新记录。
+- multi (boolean)： 默认为false。是否更新多个查询记录。
+- runValidators： 如果值为true，执行Validation验证。
+- setDefaultsOnInsert： 如果upsert选项为true，在新建时插入文档定义的默认值。
+- strict (boolean)： 以strict模式进行更新。
+- overwrite (boolean)： 默认为false。禁用update-only模式，允许覆盖记录。
+**/
+
+
+// 删除数据
+await ctx.db.table.remove({ name: 'Nobita' });
+
+// 关联查询
+await ctx.db.table.aggregate(data);
+
 ```
 官网：[http://mongoosejs.com/docs/api.html](http://mongoosejs.com/docs/api.html)
 
