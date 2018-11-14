@@ -159,7 +159,6 @@ await ctx.curl({
 |$slice|查询字段集合中的元素（比如从第几个之后，第N到第M个元素|
 ```
 
-### 例子
 ```js
 // config.*.js
 exports.mongoConf = {
@@ -211,6 +210,47 @@ await ctx.db.table.aggregate(data);
 ```
 官网：[http://mongoosejs.com/docs/api.html](http://mongoosejs.com/docs/api.html)
 
+
+## session
+```js
+// config.*.js
+exports.session = {
+  keys: [key],
+  key: 'NOBITA_SESSION', //cookie key (default is koa:sess)
+  maxAge: (86400000 * 7), // cookie的过期时间 maxAge in ms (default is 1 days)
+  overwrite: true, //是否可以overwrite    (默认default true)
+  httpOnly: true, //cookie是否只有服务器端可以访问 httpOnly or not (default true)
+  signed: true, //签名默认true
+  rolling: false, //在每次请求时强行设置cookie，这将重置cookie过期时间（默认：false）
+  renew: false, //(boolean) renew session when session is nearly expired
+}
+```
+```js
+// 使用例子
+ctx.session.name = 'Nobita';
+
+// 删除
+ctx.session.name = null;
+```
+
+## cookies
+```js
+// 使用例子
+ctx.cookies.set('name', 'Nobita', [options]);
+
+// 删除
+ctx.session.get('name');
+```
+- [options]
+- maxAge 一个数字表示从 Date.now() 得到的毫秒数
+- signed cookie 签名值
+- expires cookie 过期的 Date
+- path cookie 路径, 默认是'/'
+- domain cookie 域名
+- secure 安全 cookie
+- httpOnly 服务器可访问 cookie, 默认是 true
+- overwrite 一个布尔值，表示是否覆盖以前设置的同名的 cookie (默认是 false). 如果是 true, 在同一个请求中设置相同名称的所有 Cookie（不管路径或域）是否在设置此Cookie 时从 Set-Cookie 标头中过滤掉。
+
 ## 配置文件
 ```text
 > config.default.js  // 通用配置
@@ -248,48 +288,6 @@ exports.isLogin: {
   match: /\/index/ // 路由匹配规则
 }
 ```
-
-
-> session
-```js
-// config.*.js
-exports.session = {
-  keys: [key],
-  key: 'NOBITA_SESSION', //cookie key (default is koa:sess)
-  maxAge: (86400000 * 7), // cookie的过期时间 maxAge in ms (default is 1 days)
-  overwrite: true, //是否可以overwrite    (默认default true)
-  httpOnly: true, //cookie是否只有服务器端可以访问 httpOnly or not (default true)
-  signed: true, //签名默认true
-  rolling: false, //在每次请求时强行设置cookie，这将重置cookie过期时间（默认：false）
-  renew: false, //(boolean) renew session when session is nearly expired
-}
-```
-```js
-// 使用例子
-ctx.session.name = 'Nobita';
-
-// 删除
-ctx.session.name = null;
-```
-
-> cookies
-```js
-// 使用例子
-ctx.cookies.set('name', 'Nobita', [options]);
-
-// 删除
-ctx.session.get('name');
-```
-- [options]
-- maxAge 一个数字表示从 Date.now() 得到的毫秒数
-- signed cookie 签名值
-- expires cookie 过期的 Date
-- path cookie 路径, 默认是'/'
-- domain cookie 域名
-- secure 安全 cookie
-- httpOnly 服务器可访问 cookie, 默认是 true
-- overwrite 一个布尔值，表示是否覆盖以前设置的同名的 cookie (默认是 false). 如果是 true, 在同一个请求中设置相同名称的所有 Cookie（不管路径或域）是否在设置此Cookie 时从 Set-Cookie 标头中过滤掉。
-
 
 > xss开启
 ```js
