@@ -97,14 +97,40 @@ koa
 
 
 ## 日志打印(log4js)
-```text
-ALL < TRACE < DEBUG < INFO < WARN < ERROR < FATAL < MARK < OFF
+```js
+// config.*.js
+exports.logger = {
+  path: './logs/', // 日志位置
+  level: 'off'     // 日志打印等级 | ALL < TRACE < DEBUG < INFO < WARN < ERROR < FATAL < MARK < OFF
+}
+
+// 使用方式
+ctx.logger.debug(data);
 ```
-官网：[https://github.com/log4js-node/log4js-node](https://github.com/log4js-node/log4js-node)
 
 
-## 前端模板(nunjucks)
-官网：[http://mozilla.github.io/nunjucks/cn/api.html](http://mozilla.github.io/nunjucks/cn/api.html)
+## 前端模板
+> 模板语法基于nunjucks
+```js
+// config.*.js
+exports.temp = {
+  ext: 'html',  // 模板后缀
+  path: path.join(__dirname, '../views'),  // 模板路径
+}
+
+```
+
+## http请求(axios)
+```js
+// 例子
+await ctx.curl({
+  url: 'http://localhost:8080/test',
+  method: 'get',
+  params: {},
+});
+```
+官网：[https://www.axios.com/](https://www.axios.com/)
+
 
 ## mongoose语法
 ```text
@@ -134,6 +160,21 @@ ALL < TRACE < DEBUG < INFO < WARN < ERROR < FATAL < MARK < OFF
 ```
 
 ### 例子
+```js
+// config.*.js
+exports.mongoConf = {
+  url: 'mongodb://localhost:27017/数据库',
+  '表名': {
+    user: {
+      age: Number,
+      name: {
+        type: String,
+        unique: true
+      }               
+    }
+  }
+}
+```
 ```js
 // 查询数据
 await ctx.db.table.find({ name: 'Nobita' });
@@ -170,15 +211,6 @@ await ctx.db.table.aggregate(data);
 ```
 官网：[http://mongoosejs.com/docs/api.html](http://mongoosejs.com/docs/api.html)
 
-## 进程守护(pm2)
-官网：[http://pm2.keymetrics.io/](http://pm2.keymetrics.io/)
-
-## http请求(axios)
-官网：[https://www.axios.com/](https://www.axios.com/)
-
-## 热部署(nodemon)
-官网：[https://github.com/remy/nodemon](https://github.com/remy/nodemon)
-
 ## 配置文件
 ```text
 > config.default.js  // 通用配置
@@ -189,6 +221,7 @@ await ctx.db.table.aggregate(data);
 
 > 端口监听
 ```js
+// config.*.js
 exports.listen = { 
   port: 6001,   // 端口
   callback() {  
@@ -196,53 +229,30 @@ exports.listen = {
   }
 }
 ```
-> 模板
-```js
-exports.temp = {
-  ext: 'html',  // 模板后缀
-  path: path.join(__dirname, '../views'),  // 模板路径
-}
-```
+
 > 静态资源
 ```js
+// config.*.js
 exports.static = {
   path: path.join(__dirname, '../views/static'), // 静态资源路径
   pathPrefix: '/static' // 静态资源别名
 }
 ```
-> mongodb（Schema）
-```js
-exports.mongoConf = {
-  url: 'mongodb://localhost:27017/数据库',
-  '表名': {
-    user: {
-      age: Number,
-      name: {
-        type: String,
-        unique: true
-      }               
-    }
-  }
-}
-```
+
 > 中间件
 ```js
+// config.*.js
 exports.middleware = ['isLogin'], // 中间件名称
 
 exports.isLogin: {
   match: /\/index/ // 路由匹配规则
 }
 ```
-> log日志
-```js
-exports.logger = {
-  path: './logs/', // 日志位置
-  level: 'off'     // 日志打印等级 | ALL < TRACE < DEBUG < INFO < WARN < ERROR < FATAL < MARK < OFF
-}
-```
+
 
 > session
 ```js
+// config.*.js
 exports.session = {
   keys: [key],
   key: 'NOBITA_SESSION', //cookie key (default is koa:sess)
@@ -252,11 +262,43 @@ exports.session = {
   signed: true, //签名默认true
   rolling: false, //在每次请求时强行设置cookie，这将重置cookie过期时间（默认：false）
   renew: false, //(boolean) renew session when session is nearly expired
-  
+}
 ```
+```js
+// 使用例子
+ctx.session.name = 'Nobita';
+
+// 删除
+ctx.session.name = null;
+```
+
+> cookies
+```js
+// 使用例子
+ctx.cookies.set('name', 'Nobita', [options]);
+
+// 删除
+ctx.session.get('name');
+```
+- [options]
+- maxAge 一个数字表示从 Date.now() 得到的毫秒数
+- signed cookie 签名值
+- expires cookie 过期的 Date
+- path cookie 路径, 默认是'/'
+- domain cookie 域名
+- secure 安全 cookie
+- httpOnly 服务器可访问 cookie, 默认是 true
+- overwrite 一个布尔值，表示是否覆盖以前设置的同名的 cookie (默认是 false). 如果是 true, 在同一个请求中设置相同名称的所有 Cookie（不管路径或域）是否在设置此Cookie 时从 Set-Cookie 标头中过滤掉。
 
 
 > xss开启
 ```js
+// config.*.js
 exports.xss = true
 ```
+
+## 进程守护(pm2)
+官网：[http://pm2.keymetrics.io/](http://pm2.keymetrics.io/)
+
+## 热部署(nodemon)
+官网：[https://github.com/remy/nodemon](https://github.com/remy/nodemon)
