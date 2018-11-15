@@ -11,19 +11,6 @@ config = {
     pathPrefix: '/static'
   },
 
-  mongoConf: {
-    url: 'mongodb://localhost:27017/demo',
-    tables: {
-      user: {
-        age: Number,
-        name: {
-          type: String,
-          unique: true
-        }
-      }
-    }
-  },
-
   session: {
     keys: ['ab18ae83-2f8c-4959-801c-3fcd389b0320'],
     key: 'TECH_SESSION', /** (string) cookie key (default is koa:sess) */

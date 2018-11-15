@@ -1,7 +1,7 @@
 # ![avatar](https://api.iamtang.com/images/nobita.png)Nobita
 ![avatar](https://api.iamtang.com/images/bf47d0f9d72a6059be3961992234349b023bbad5.jpg)
 
-## 介绍
+## 介绍(v0.2.9)
 Nobeta 是一个基于Koa而诞生的一款框架。
 
 ## 快速初始化
@@ -129,7 +129,7 @@ await ctx.curl({
   params: {},
 });
 ```
-官网：[https://www.axios.com/](https://www.axios.com/)
+[详细文档](https://www.axios.com/)
 
 
 ## mongoose语法
@@ -161,7 +161,7 @@ await ctx.curl({
 
 ```js
 // config.*.js
-exports.mongoConf = {
+exports.mongo = {
   url: 'mongodb://localhost:27017/数据库',
   '表名': {
     user: {
@@ -208,8 +208,22 @@ await ctx.db.table.remove({ name: 'Nobita' });
 await ctx.db.table.aggregate(data);
 
 ```
-官网：[http://mongoosejs.com/docs/api.html](http://mongoosejs.com/docs/api.html)
+[详细文档](http://mongoosejs.com/docs/api.html)
 
+## mysql
+```js
+//config.*.js
+exports.mysql = {
+  host     : 'localhost',
+  user     : 'root',
+  password : 'password',
+  database : 'database'
+};
+
+// 例子
+await ctx.mysql.sql('SELECT * FROM table');
+```
+[详细文档](https://www.npmjs.com/package/mysql)
 
 ## session
 ```js
@@ -251,12 +265,32 @@ ctx.session.get('name');
 - httpOnly 服务器可访问 cookie, 默认是 true
 - overwrite 一个布尔值，表示是否覆盖以前设置的同名的 cookie (默认是 false). 如果是 true, 在同一个请求中设置相同名称的所有 Cookie（不管路径或域）是否在设置此Cookie 时从 Set-Cookie 标头中过滤掉。
 
+## redis缓存
+```js
+// config.*.js
+exports.redis = {
+  port: 6379,          // Redis port
+  host: '127.0.0.1',   // Redis host
+  family: 4,           // 4 (IPv4) or 6 (IPv6)
+  password: 'auth',
+  db: 0
+}
+
+// 使用例子
+ctx.redis.set('key', 'Nobita', [options]);
+
+await ctx.redis.get('key');
+
+ctx.redis.del('key');
+```
+[详细文档](https://github.com/luin/ioredis/blob/HEAD/API.md)
+
+
 ## 配置文件
 ```text
 > config.default.js  // 通用配置
 > config.local.js    // 本地开发配置
 > config.prod.js     // 线上配置
-
 ```
 
 > 端口监听
@@ -296,7 +330,7 @@ exports.xss = true
 ```
 
 ## 进程守护(pm2)
-官网：[http://pm2.keymetrics.io/](http://pm2.keymetrics.io/)
+[详细文档](http://pm2.keymetrics.io/)
 
 ## 热部署(nodemon)
-官网：[https://github.com/remy/nodemon](https://github.com/remy/nodemon)
+[详细文档](https://github.com/remy/nodemon)
