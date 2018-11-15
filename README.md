@@ -91,6 +91,8 @@ koa
 - helper: 工具函数
 - logger: 日志打印
 - db: mongo数据库操作
+- mysql: mysql数据库操作
+- redis: redis缓存操作
 - request: 获取到当前请求的 Request
 - nunjucks: 模板引擎
 - cache: 内部缓存
