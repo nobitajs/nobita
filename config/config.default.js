@@ -13,7 +13,7 @@ config = {
 
   session: {
     keys: ['ab18ae83-2f8c-4959-801c-3fcd389b0320'],
-    key: 'TECH_SESSION', /** (string) cookie key (default is koa:sess) */
+    key: 'NOBITA_SESSION', /** (string) cookie key (default is koa:sess) */
     maxAge: (86400000 * 7),
     overwrite: true, /** (boolean) can overwrite or not (default true) */
     httpOnly: true, /** (boolean) httpOnly or not (default true) */
