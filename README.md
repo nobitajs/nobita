@@ -2,7 +2,7 @@
 ![avatar](https://api.iamtang.com/images/bf47d0f9d72a6059be3961992234349b023bbad5.jpg)
 
 ## 介绍(v0.3.4)
-Nobeta 是一个基于Koa而诞生的一款框架。
+Nobita 是一个基于Koa而诞生的一款框架。
 
 ## 快速初始化
 ```text
