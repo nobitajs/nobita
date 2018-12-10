@@ -1,7 +1,7 @@
 # ![avatar](https://api.iamtang.com/images/nobita.png)Nobita
 ![avatar](https://api.iamtang.com/images/bf47d0f9d72a6059be3961992234349b023bbad5.jpg)
 
-## 介绍(v0.3.4)
+## 介绍(v0.3.6)
 Nobita 是一个基于Koa而诞生的一款框架。
 
 ## 快速初始化
@@ -135,8 +135,9 @@ await ctx.curl({
 
 
 ## mongoose语法
-```text
-|名称|说明|
+
+| 名称 | 说明 |
+|:----|:----|
 |$or|或关系|
 |$nor|或关系取反|
 |$gt|大于|
@@ -159,7 +160,7 @@ await ctx.curl({
 |$center|范围醒询，圆形范围（基于LBS）|
 |$centerSphere|范围查询，球形范围（基于LBS）|
 |$slice|查询字段集合中的元素（比如从第几个之后，第N到第M个元素|
-```
+
 
 ```js
 // config.*.js
