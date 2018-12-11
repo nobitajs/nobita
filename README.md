@@ -166,8 +166,8 @@ await ctx.curl({
 // config.*.js
 exports.mongo = {
   url: 'mongodb://localhost:27017/数据库',
-  '表名': {
-    user: {
+  tables: {
+    database: {
       age: Number,
       name: {
         type: String,
@@ -179,19 +179,19 @@ exports.mongo = {
 ```
 ```js
 // 查询数据
-await ctx.db.table.find({ name: 'Nobita' });
+await ctx.db.database.find({ name: 'Nobita' });
 
 // 插入数据
-await ctx.db.table.insert({ name: 'Nobita' });
+await ctx.db.database.insert({ name: 'Nobita' });
 
 // 插入多条数据
-await ctx.db.table.insertMany([
+await ctx.db.database.insertMany([
   { name: 'Nobita' },
   { name: 'Koa' }
 ]);
 
 // 修改数据
-await ctx.db.table.update({ name: 'Nobita' }, { author: 'JJ' }, [options]);
+await ctx.db.database.update({ name: 'Nobita' }, { author: 'JJ' }, [options]);
 
 /* [options]
 - safe (boolean)： 默认为true。安全模式。
@@ -205,10 +205,10 @@ await ctx.db.table.update({ name: 'Nobita' }, { author: 'JJ' }, [options]);
 
 
 // 删除数据
-await ctx.db.table.remove({ name: 'Nobita' });
+await ctx.db.database.remove({ name: 'Nobita' });
 
 // 关联查询
-await ctx.db.table.aggregate(data);
+await ctx.db.database.aggregate(data);
 
 ```
 [详细文档](http://mongoosejs.com/docs/api.html)
