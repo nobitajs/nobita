@@ -2,14 +2,17 @@
   "restartable": "rs",
   "ignore": [
     ".git",
-    "node_modules/**/*",
-    "logs/*.log"
+    "node_modules",
+    ".vscode",
+    "logs",
+    "*.json"
   ],
   "verbose": true,
   "execMap": {
-    "": "node",
     "js": "node --harmony"
   },
-  "ext": "js json html",
-  "legacy-watch": false
+  "env": {
+    "RUN_ENV": "local"
+  },
+  "ext": "js,json"
 }

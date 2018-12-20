@@ -5,14 +5,13 @@
   "main": "app.js",
   "dependencies": {
     "cross-env": "^5.0.0",
-    "nobita": "^0.3.7",
-    "nobita-mongo": "^0.0.1",
+    "nobita": "^0.4.2",
     "lodash": "4.17.10",
-    "nodemon": "1.0.0",
+    "nodemon": "^1.18.9",
     "pm2": "2.10.4"
   },
   "scripts": {
-    "local": "cross-env RUN_ENV=local nodemon app.js",
+    "local": "cross-env RUN_ENV=local nodemon app.js --config nodemon.json",
     "prod": "pm2 start run.json",
     "stop": "pm2 stop demo",
     "debug": "cross-env RUN_ENV=local node --inspect app.js"

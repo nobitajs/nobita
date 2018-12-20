@@ -1,15 +1,20 @@
 # ![avatar](https://api.iamtang.com/images/nobita.png)Nobita
 ![avatar](https://api.iamtang.com/images/bf47d0f9d72a6059be3961992234349b023bbad5.jpg)
 
-## 介绍(v0.3.7)
+## 介绍(v0.4.2)
 Nobita 是一个基于Koa而诞生的一款框架。
+
+## 建议安装淘宝镜像
+```
+$ npm install -g cnpm --registry=https://registry.npm.taobao.org
+```
 
 ## 快速初始化
 ```text
-$ npm install nobita-cli -g
+$ cnpm install nobita-cli -g
 $ nobita-cli init
 $ cd 项目名
-$ npm install
+$ cnpm install
 ```
 
 ## 启动项目
@@ -17,7 +22,10 @@ $ npm install
 $ npm run local  启动本地开发
 $ npm run prod   启动线上命令
 $ npm run stop   停止服务
+$ npm run debug  调试模式
 ```
+
+
 
 ## 目录结构
 ```text
