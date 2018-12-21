@@ -1,7 +1,7 @@
 # ![avatar](https://api.iamtang.com/images/nobita.png)Nobita
 ![avatar](https://api.iamtang.com/images/bf47d0f9d72a6059be3961992234349b023bbad5.jpg)
 
-## 介绍(v0.4.2)
+## 介绍(v0.4.3)
 Nobita 是一个基于Koa而诞生的一款框架。
 
 ## 建议安装淘宝镜像
@@ -246,6 +246,26 @@ await ctx.db.db1.database.find({ name: 'Nobita' });
 await ctx.db.db2.database.find({ name: 'Nobita' });
 
 ```
+### Schema
+- type: 字段类型
+   - String      字符串
+   - Number      数字    
+   - Date        日期
+   - Buffer      二进制
+   - Boolean     布尔值
+   - Mixed       混合类型
+   - ObjectId    对象ID    
+   - Array       数组
+- required: 是否必填
+- default: 默认值
+- validate: 自定义匹配
+- min: 最小值(只适用于数字)
+- max: 最大值(只适用于数字)
+- match: 正则匹配(只适用于字符串)
+- enum:  枚举匹配(只适用于字符串)
+- unique: 是否唯一
+
+
 ### find - [options]
 - limit (number)： 默认为20。查询条数。
 - page  (number)： 默认为0。查询页码。
