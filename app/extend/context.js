@@ -1,6 +1,5 @@
 module.exports = {
-  getUrl () {
+  get () {
     let ctx = this;
-    console.log(ctx.request.url);
   }
 }
