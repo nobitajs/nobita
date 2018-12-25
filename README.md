@@ -1,7 +1,7 @@
 # ![avatar](https://api.iamtang.com/images/nobita.png)Nobita
 ![avatar](https://api.iamtang.com/images/bf47d0f9d72a6059be3961992234349b023bbad5.jpg)
 
-## 介绍(v0.4.3)
+## 介绍(v0.4.7)
 Nobita 是一个基于Koa而诞生的一款框架。
 
 ## 建议安装淘宝镜像
@@ -104,6 +104,13 @@ koa
 - request: 获取到当前请求的 Request
 - nunjucks: 模板引擎
 - cache: 内部缓存
+
+## 内部缓存
+- 队列（Queue）是一种遵从先进先出（First in, first out。简称FIFO）原则的有序集合。
+```js
+// config.*.js
+exports.cache = ${length} // 默认1000
+```
 
 
 ## 日志打印(log4js)
