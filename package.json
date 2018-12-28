@@ -1,0 +1,36 @@
+{
+  "name": "nobita",
+  "version": "1.0.0",
+  "description": "Nobita",
+  "main": "app.js",
+  "dependencies": {
+    "cross-env": "^5.0.0",
+    "nobita": "^0.4.7",
+    "lodash": "4.17.10",
+    "nodemon": "^1.18.9",
+    "pm2": "2.10.4"
+  },
+  "scripts": {
+    "local": "cross-env RUN_ENV=local nodemon app.js --config nodemon.json",
+    "prod": "pm2 start run.json",
+    "stop": "pm2 stop demo",
+    "debug": "cross-env RUN_ENV=local node --inspect app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iamtang/nobita.git"
+  },
+  "keywords": [
+    "koa",
+    "nobita"
+  ],
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/iamtang/nobita/issues",
+    "email": "303907720@qq.com"
+  },
+  "author": "JJ",
+  "license": "MIT"
+}

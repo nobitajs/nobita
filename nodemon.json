@@ -1,0 +1,18 @@
+{
+  "restartable": "rs",
+  "ignore": [
+    ".git",
+    "node_modules",
+    ".vscode",
+    "logs",
+    "*.json"
+  ],
+  "verbose": true,
+  "execMap": {
+    "js": "node --harmony"
+  },
+  "env": {
+    "RUN_ENV": "local"
+  },
+  "ext": "js,json"
+}
