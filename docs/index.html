@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Nobita.js</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="Nobita" content="Nobita">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
+  <link rel="icon" href="/favicon.png" type="image/x-icon" />
+</head>
+
+<body>
+  <div id="app">loading...</div>
+  <script>
+    window.$docsify = {
+      themeColor: '#463838',
+      auto2top: true,
+      loadNavbar: true,
+      maxLevel: 6,
+      tocLevel: 6,
+      subMaxLevel: 3,
+      formatUpdated: '{MM}/{DD} {HH}:{mm}',
+      mergeNavbar: true,
+      coverpage: true,
+      loadSidebar: true,
+      autoHeader: true,
+      showLevel: true,
+      mergeNavbar: true,
+      name: 'Nobita',
+      repo: 'https://github.com/iamtang/nobita/',
+      homepage: 'guide.md',
+      search: 'auto', // 默认值
+      search: [
+        '/guide',       // => /guide.md
+        '/config'      // => /config.md
+      ],
+      // 完整配置参数
+      search: {
+        maxAge: 86400000, // 过期时间，单位毫秒，默认一天
+        paths: 'auto', // or 'auto'
+        placeholder: 'Type to search',
+        // 支持本地化
+        placeholder: {
+          '/': 'Type to search'
+        },
+        noData: 'No Results!',
+        // 支持本地化
+        noData: {
+          '/': 'No Results'
+        },
+        // 搜索标题的最大程级, 1 - 6
+        depth: 6
+      },
+      pagination: {
+        previousText: '上一章节',
+        nextText: '下一章节',
+      }
+    }
+  </script>
+  <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+  <script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
+
+  <script src="//unpkg.com/docsify-copy-code"></script>
+  <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
+</body>
+
+</html>
