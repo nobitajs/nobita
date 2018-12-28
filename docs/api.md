@@ -1,203 +1,195 @@
-# cache
-- 类型：Number
-- 默认值： null
+# 基础功能
+---
+## Controllers
+> 所有的 Controller 文件都必须放在 app/controller 目录下，可以支持多级目录，访问的时候可以通过目录名级联访问。
 
 ```js
-// config.*.js
-exports.cache = ${length} // 默认1000
-```
-
-# logger
-- 类型：Object
-- 默认值： null
-
-```js
-// config.*.js
-exports.logger = {
-  path: './logs/', // 日志位置
-  level: 'off'     // 日志打印等级 | ALL < TRACE < DEBUG < INFO < WARN < ERROR < FATAL < MARK < OFF
-}
-
-```
-
-# nunjucks
-- 类型：Object
-- 默认值： null
-
-```js
-// config.*.js
-exports.temp = {
-  ext: 'html',  // 模板后缀
-  path: path.join(__dirname, '../views'),  // 模板路径
+// app/controllers/index.js
+module.exports = {
+  async getName () {
+    const ctx = this;
+    ctx.body = 'Hello Nobita!';
+  }
 }
 ```
 
-# mongo
-- 类型：Object
-- 默认值： null
+然后我们可以使用 Router 来指向我们建立的 getName 。对象里面的每一个 Controller 都能再 Router 引用，根据文件名和方法定位。
 
 ```js
-// config.*.js
-exports.mongo = {
-  url: 'mongodb://localhost:27017/数据库名',
-  tables: {
-    database: {
-      age: Number,
-      name: {
-        type: String,
-        unique: true
-      },
-      ...           
+// app/controllers/index.js
+module.exports = app => {
+  app.router.get('/', app.controllers.index.getName);
+```
+
+Controllers 支持多级目录，例如如果我们将上面的 Controller 代码放到 app/controllers/api/index.js 中，则可以在 router 中这样使用：
+```js
+// app/controllers/api/index.js
+module.exports = app => {
+  app.router.get('/', app.controllers.api.index.getName);
+```
+注意事项：
+- 一个 Controllers 文件只能包含一个对象， 这个对象需要通过 module.exports 的方式返回。
+
+---
+
+## Service
+Service 主要用与复杂业务场景下用于做业务逻辑封装的一个抽象层：
+- 减少 Controllers 中的逻辑代码
+- 保持业务逻辑的独立性，抽象出来的 Service 可以被多个 Controller 重复调用。
+- 将逻辑和展现分离。
+
+> Service 文件必须放在 app/service 目录，与 Controllers 类似，可以支持多级目录，访问的时候可以通过目录名级联访问。
+
+```
+app/service/api/user.js => ctx.service.api.user
+app/service/test_a.js => ctx.service.test_a
+app/service/test_b.js => ctx.service.test_b
+```
+
+```js
+// app/service/test.js
+module.exports = ctx => { 
+  return {
+    async getName() {
+      // ...
     }
   }
 }
+```
+注意事项：
+- 一个 Service 文件只能包含一个函数， 这个函数需要通过 module.exports 的方式返回。
+- 该 Service 可以通过入参获取ctx对象。
 
-// 链接多个数据库
-exports.mongo = {
-  clients: {
-    db1: {
-      url: 'mongodb://localhost:27017/数据库名-1',
-      tables: {
-        database: {
-          age: Number,
-          name: {
-            type: String,
-            unique: true
-          }               
-        }
-      }
-    },
+---
 
-    db2: {
-      url: 'mongodb://localhost:27017/数据库名-2',
-      tables: {
-        database: {
-          age: Number,
-          name: {
-            type: String,
-            unique: true
-          }          
-        }
-      }
-    },
-    ...
+## Router
+
+Router 主要用来描述请求 URL 和具体承担执行动作的 Controllers 的对应关系， 框架约定了 app/router.js 文件用于统一所有路由入口。
+
+- 在 app/router.js 里面定义路由规则。
+```js
+// app/router.js
+module.exports = app => {
+  const { router, controllers } = app;
+  router.get('/detail/:id', controllers.detail.get);
+};
+```
+- app/controllers/detail.js 下实现Controller
+```js
+// app/controller/detail.js
+module.exports = {
+  async get () {
+    const ctx = this;
+    const { id } = ctx.params;
+    // ...
+    ctx.body = `id = ${id}`;
   }
-  
 }
 ```
 
-#### Schema
-- type: 字段类型
-   - String      字符串
-   - Number      数字    
-   - Date        日期
-   - Buffer      二进制
-   - Boolean     布尔值
-   - Mixed       混合类型
-   - ObjectId    对象ID    
-   - Array       数组
-- required: 是否必填
-- default: 默认值
-- validate: 自定义匹配
-- min: 最小值(只适用于数字)
-- max: 最大值(只适用于数字)
-- match: 正则匹配(只适用于字符串)
-- enum:  枚举匹配(只适用于字符串)
-- unique: 是否唯一
+当用户访问 <font color=#e96900>${host}/detail/233</font> 的时候，就会执行 detail 里面的
+get 方法。
 
+Router 有以下类型：
+ - router.all - 所有类型
+ - router.get - GET
+ - router.post - POST
+ - router.put - PUT
+ - router.del - DELETE
 
-# mysql
-- 类型：Object
-- 默认值： null
-
+举例说明：
 ```js
-//config.*.js
-exports.mysql = {
-  host     : 'localhost',
-  user     : 'root',
-  password : 'password',
-  database : 'database'
+// app/router.js
+module.exports = app => {
+  const { router, controller } = app;
+  router.get('/home', controller.home);
+  router.post('/user/:id', controller.user.get);
+  router.put('/admin', controller.admin);
+  router.del('/user', controller.user.get);
+  router.all('/api/v1/comments', controller.v1.comments.get);
+};
+```
+
+---
+## 获取Router参数
+
+Query String 方式
+```js
+// app/router.js
+module.exports = app => {
+  app.router.get('/search', app.controller.search.index);
 };
 
-```
-# session
-- 类型：Object
-- 默认值： null
+// app/controller/search.js
+exports.index = async ctx => {
+  ctx.body = `search: ${ctx.query.name}`;
+};
 
-```js
-// config.*.js
-exports.session = {
-  keys: [key],
-  key: 'NOBITA_SESSION', //cookie key (default is koa:sess)
-  maxAge: (86400000 * 7), // cookie的过期时间 maxAge in ms (default is 1 days)
-  overwrite: true, //是否可以overwrite    (默认default true)
-  httpOnly: true, //cookie是否只有服务器端可以访问 httpOnly or not (default true)
-  signed: true, //签名默认true
-  rolling: false, //在每次请求时强行设置cookie，这将重置cookie过期时间（默认：false）
-  renew: false, //(boolean) renew session when session is nearly expired
-}
+// curl http://127.0.0.1:7001/search?name=Nobita
 ```
 
-# redis
-- 类型：Object
-- 默认值： null
-
+表单内容的获取
 ```js
-// config.*.js
-exports.redis = {
-  port: 6379,          // Redis port
-  host: '127.0.0.1',   // Redis host
-  family: 4,           // 4 (IPv4) or 6 (IPv6)
-  password: 'auth',
-  db: 0
-}
+// app/router.js
+module.exports = app => {
+  app.router.get('/detail/:id', app.controller.package.detail);
+};
+
+// app/controller/package.js
+exports.detail = async ctx => {
+  ctx.body = `package:${ctx.params.id}`;
+};
+
+// curl http://127.0.0.1:7001/detail/2333
 ```
 
-# listen
-- 类型：Object
-- 默认值： null
+参数命名方式
+```js
+// app/router.js
+module.exports = app => {
+  app.router.post('/form', app.controller.form.post);
+};
+
+// app/controller/form.js
+exports.post = async ctx => {
+  const { name } = ctx.request.body;
+  ctx.body = `name: ${name}`;
+};
+
+// 模拟发起 post 请求。
+// curl -X POST http://127.0.0.1:7001/form --data '{"name":"Nobita"}' --header 'Content-Type:application/json'
+```
+---
+
+## Middleware
+> 因为 Nobita 是基于 Koa 而诞生的，所以 Nobita 的中间件也是跟 Koa 的形式一样，都是洋葱圈模式。每多一个中间件就会多一层“洋葱皮”。
+
+- 所有的 Middleware 文件都必须放在 app/Middleware 目录下。
 
 ```js
-// config.*.js
-exports.listen = { 
-  port: 6001,   // 端口
-  callback() {  
-    // 监听端口回调
+// app/middleware/isLogin.js
+module.exports = async (ctx, next) => {
+  const { token } = ctx.query;
+  const isLogin = await isLogin(token);
+  if (isLogin) {
+    ...
+  } else {
+    ... 
   }
+  await next();
 }
 ```
 
-# static
-- 类型：Object
-- 默认值： null
+- 中间件编写完成后，我们还需要手动挂载。
 
 ```js
-// config.*.js
-exports.static = {
-  path: path.join(__dirname, '../views/static'), // 静态资源路径
-  pathPrefix: '/static' // 静态资源别名
-}
-```
-
-# middleware
-- 类型：Array
-- 默认值： null
-
-
-```js
-// config.*.js
-exports.middleware = ['isLogin'], // 中间件名称
+// config/config.*.js
+exports.middleware = ['isLogin', ...], // 中间件名称
 
 exports.isLogin: {
   match: /\/index/ // 路由匹配规则
+  ignore: /\/index/  // 除外，ignore和match同时存在，优先ignore
 }
 ```
 
-# xss
-- 类型：Boolean
-- 默认值： null
-
-```js
-// config.*.js
-exports.xss = true
-```
+- middleware 的顺序决定了中间件的运行顺序

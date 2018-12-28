@@ -8,4 +8,4 @@
 [GitHub](https://github.com/iamtang/nobita)
 [开始使用](#快速开始)
 
-![color](#f0f0f0)
+![color](#f2f2f2)

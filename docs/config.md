@@ -1,13 +1,15 @@
-# 配置文件
-
+# 基础功能
+---
 ## cache
-- 类型：Number
-- 默认值： null
+- 类型：<font color=#e96900>Number</font>
+- 默认值： <font color=#e96900>null</font>
 
 ```js
 // config.*.js
 exports.cache = ${length} // 默认1000
 ```
+
+---
 
 ## logger
 - 类型：Object
@@ -22,7 +24,9 @@ exports.logger = {
 
 ```
 
-## temp
+---
+
+## nunjucks
 - 类型：Object
 - 默认值： null
 
@@ -33,6 +37,8 @@ exports.temp = {
   path: path.join(__dirname, '../views'),  // 模板路径
 }
 ```
+
+---
 
 ## mongo
 - 类型：Object
@@ -88,6 +94,8 @@ exports.mongo = {
 }
 ```
 
+---
+
 ##### Schema
 - type: 字段类型
    - String      字符串
@@ -108,6 +116,8 @@ exports.mongo = {
 - unique: 是否唯一
 
 
+---
+
 ## mysql
 - 类型：Object
 - 默认值： null
@@ -121,6 +131,8 @@ exports.mysql = {
   database : 'database'
 };
 
+
+---
 ```
 ## session
 - 类型：Object
@@ -140,6 +152,8 @@ exports.session = {
 }
 ```
 
+---
+
 ## redis
 - 类型：Object
 - 默认值： null
@@ -155,6 +169,8 @@ exports.redis = {
 }
 ```
 
+---
+
 ## listen
 - 类型：Object
 - 默认值： null
@@ -169,6 +185,8 @@ exports.listen = {
 }
 ```
 
+---
+
 ## static
 - 类型：Object
 - 默认值： null
@@ -180,6 +198,8 @@ exports.static = {
   pathPrefix: '/static' // 静态资源别名
 }
 ```
+
+---
 
 ## middleware
 - 类型：Array
@@ -194,6 +214,8 @@ exports.isLogin: {
   match: /\/index/ // 路由匹配规则
 }
 ```
+
+---
 
 ## xss
 - 类型：Boolean
