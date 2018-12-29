@@ -5,3 +5,12 @@
 Nobita 是一个基于Koa而诞生的一款框架。
 
 [官方网站](https://iamtang.github.io/nobita/)
+
+```js
+// app.js
+const app = require('nobita');
+```
+
+```
+node app.js
+```
