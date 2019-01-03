@@ -6,7 +6,12 @@
 ```js
 // config.{env}.js
 exports.mongo = {
-  url: 'mongodb://localhost:27017/数据库',
+  url: 'mongodb://[location]:[port]/[dbName]',
+  option: {
+    user: 'user',
+    pass: 'password',
+    authSource: 'admin'
+  },
   tables: {
     database: {
       age: Number,
@@ -18,6 +23,9 @@ exports.mongo = {
   }
 }
 ```
+- [option] 非必填
+- user/ pass - 身份验证的用户名和密码。这些选项是特定于mongoose的，它们等同于MongoDB驱动程序
+- authSource - 用来表明验证身份的来源数据库
 
 - 配置后，直接ctx.db.{database} 就可以直接使用
 
