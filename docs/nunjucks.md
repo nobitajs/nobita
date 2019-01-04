@@ -43,6 +43,7 @@ module.exports = {
 ```
 
 - 根据上述配置
+
 ```html
 <!-- views/index.html -->
 <div>name:{{name}}, age:{{age}}</div>

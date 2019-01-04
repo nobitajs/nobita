@@ -13,8 +13,11 @@ module.exports = {
     // this 就是 ctx 对象，在其中可以调用 ctx 上的其他方法，或访问属性
   },
 };
+```
 
+- 根据上述配置
 
+```js
 // app/controllers/user.js
 module.exports = {
   async get() {
@@ -37,7 +40,11 @@ module.exports = {
     return a + b;
   },
 };
+```
 
+- 根据上述配置
+
+```js
 // app/controllers/user.js
 module.exports = {
   async get() {
@@ -60,6 +67,7 @@ module.exports = {
   },
 };
 ```
+- 根据上述配置
 
 ```html
 <!-- index.html -->
