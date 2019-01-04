@@ -29,6 +29,25 @@ exports.mongo = {
 
 - 配置后，直接ctx.db.{database} 就可以直接使用
 
+## Schema
+- type: 字段类型
+   - String      字符串
+   - Number      数字    
+   - Date        日期
+   - Buffer      二进制
+   - Boolean     布尔值
+   - Mixed       混合类型
+   - ObjectId    对象ID    
+   - Array       数组
+- required: 是否必填
+- default: 默认值
+- validate: 自定义匹配
+- min: 最小值(只适用于数字)
+- max: 最大值(只适用于数字)
+- match: 正则匹配(只适用于字符串)
+- enum:  枚举匹配(只适用于字符串)
+- unique: 是否唯一
+
 ## 查询条件
 
 | 名称 | 说明 |
