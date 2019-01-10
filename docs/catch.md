@@ -50,6 +50,7 @@ app.on('error', (err, ctx) => {
 })
 ```
 - 配置了 errorPageUrl 时，一旦用户请求线上应用的 HTML 页面异常，就会重定向到这个地址。
+- 若想线上环境查看报错原因，就在 url 添加 _debug=true 即可。
 
 ```js
 // config/config.${emv}.js
