@@ -21,6 +21,7 @@
   * [Redis](redis)
   * [扩展](extend)
   * [异常处理](catch)
+  * [事件监听](listener)
   * [进程守护](pm2)
   * [本地开发](nodemon)
 * 常见文件
