@@ -5,7 +5,7 @@
 - 如果发现新的问题无法解决， 欢迎提交 [Nobita issue](https://github.com/iamtang/nobita/issues)
 - 定期更新
 
-## v0.6.4
+## v0.6.6
   - 增加 catch 错误 UI。
   - 增加 favicon 网页小图标。
 
