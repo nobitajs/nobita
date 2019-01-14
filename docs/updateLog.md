@@ -5,8 +5,9 @@
 - 如果发现新的问题无法解决， 欢迎提交 [Nobita issue](https://github.com/iamtang/nobita/issues)
 - 定期更新
 
-## v0.6.2 ~ v0.6.3
+## v0.6.4
   - 增加 catch 错误 UI。
+  - 增加 favicon 网页小图标。
 
 ## v0.6.1
   - nobita-catch 返回 json 改改成返回 stack。
