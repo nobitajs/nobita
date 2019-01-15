@@ -5,7 +5,10 @@
 - 如果发现新的问题无法解决， 欢迎提交 [Nobita issue](https://github.com/iamtang/nobita/issues)
 - 定期更新
 
-## v0.6.6
+## v0.6.9
+  - 修改中间件加载方式，match、ignore增加传入方式。
+
+## v0.6.7
   - 修复 error 错误输出捕抓逻辑。
   - 修复 logger 本地开发时报错。
 

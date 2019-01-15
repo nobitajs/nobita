@@ -27,8 +27,13 @@ exports.middleware = ['isLogin', ...], // 中间件名称
 
 exports.isLogin: {
   match: /\/index/ // 路由匹配规则
-  ignore: /\/index/  // 除外，ignore和match同时存在，优先ignore
+  ignore(ctx) {
+    // ctx.. 
+    // return ..
+  }
 }
 ```
 
-- middleware 的顺序决定了中间件的运行顺序
+- middleware 的顺序决定了中间件的运行顺序。
+- ignore 和 match 同时存在，优先ignore。
+- 类型：正则、函数、字符串。
