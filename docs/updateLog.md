@@ -5,6 +5,11 @@
 - 如果发现新的问题无法解决， 欢迎提交 [Nobita issue](https://github.com/iamtang/nobita/issues)
 - 定期更新
 
+## v0.7.2
+  - 修改文件路径 app/middleware 改为 app/middlewares，但也兼容 app/middleware。
+  - app.middlewares 可读取所有中间件函数。
+  - 增加路由引入对应的中间件。[查看](/middleware?id=路由引入)
+
 ## v0.6.9
   - 修改中间件加载方式，match、ignore增加传入方式。
 

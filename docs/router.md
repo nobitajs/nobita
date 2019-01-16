@@ -35,6 +35,7 @@ get 方法。
  - router.post - POST
  - router.put - PUT
  - router.del - DELETE
+ - router.redirect - 重定向
 
 举例说明：
 ```js
@@ -48,6 +49,18 @@ module.exports = app => {
   router.all('/api/v1/comments', controller.v1.comments.get);
 };
 ```
+
+```js
+router.redirect('/login', 'test');
+```
+- 相当于
+```js
+router.all('/login', ctx => {
+  ctx.redirect('/test');
+  ctx.status = 301;
+});
+```
+
 
 ---
 ## 获取Router参数
