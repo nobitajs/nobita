@@ -5,6 +5,10 @@
 - 如果发现新的问题无法解决， 欢迎提交 [Nobita issue](https://github.com/iamtang/nobita/issues)
 - 定期更新
 
+## v0.7.4
+  - 修改 mysql 使用方式，引入 sequelize 插件。[查看](/mysql)
+  - config.{env}.js 增加函数式调用。[查看](/config?id=函数式引入)
+
 ## v0.7.2
   - 修改文件路径 app/middleware 改为 app/middlewares，但也兼容 app/middleware。
   - app.middlewares 可读取所有中间件函数。

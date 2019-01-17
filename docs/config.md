@@ -40,6 +40,17 @@ module.exports = {
 };
 ```
 
+## 函数式引入
+```js
+// config.default.js
+module.exports = app => {
+  // ...app
+  return {
+    a:1
+  }
+};
+```
+
 ## 合并规则
 - 当指定 env 时会同时加载对应的配置文件，并覆盖默认配置文件的同名配置。如 prod 环境会加载 config.prod.js 和 config.default.js 文件，config.prod.js 会覆盖 config.default.js 的同名配置。
 
@@ -56,3 +67,4 @@ module.exports = {
 
 // app.config.a == 2
 ```
+
