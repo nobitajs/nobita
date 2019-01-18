@@ -13,7 +13,7 @@ module.exports = {
 }
 ```
 
-然后我们可以使用 Router 来指向我们建立的 getName 。对象里面的每一个 Controller 都能再 Router 引用，根据文件名和方法定位。
+然后我们可以使用 Router 来指向我们建立的 getName 。对象里面的每一个 Controller 都能在 Router 引用，根据文件名和方法定位。
 
 ```js
 // app/controllers/index.js
