@@ -5,6 +5,10 @@
 - 如果发现新的问题无法解决， 欢迎提交 [Nobita issue](https://github.com/iamtang/nobita/issues)
 - 定期更新
 
+## v0.7.7
+  - nobita-curl 修复 headers 为空的错误。
+  - 增加 定时任务 [查看](/schedule)
+
 ## v0.7.4
   - 修改 mysql 使用方式，引入 sequelize 插件。[查看](/mysql)
   - config.{env}.js 增加函数式调用。[查看](/config?id=函数式引入)

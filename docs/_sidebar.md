@@ -20,6 +20,7 @@
   * [Mysql](mysql)
   * [Redis](redis)
   * [扩展](extend)
+  * [定时任务](schedule)
   * [异常处理](catch)
   * [事件监听](event)
   * [进程守护](pm2)
