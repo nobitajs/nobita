@@ -31,3 +31,15 @@ ctx.logger.mark('--mark--');
 ```
 [2018-12-29T14:00:09.930] [MARK] logs - --mark--
 ```
+
+## 允许查看日志文件
+```js
+// config.{env}.js
+exports.logger = {
+  path: './logs/',   // 日志位置
+  level: 'MARK',     // 设置日志打印等级
+  router: '/_logger' // 路由地址
+}
+```
+
+访问 http://${host}/_logger 即可查看 logs/*.log 文件
