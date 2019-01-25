@@ -8,6 +8,7 @@
   <meta name="Nobita" content="Nobita">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
+  <script src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
   <link rel="icon" href="https://api.iamtang.com/images/favicon.png" type="image/x-icon" />
 </head>
 
@@ -47,6 +48,28 @@
         nextText: '下一章节',
       }
     }
+    window.onload = function () {
+      $.ajax({
+        url: 'https://api.github.com/repos/iamtang/nobita',
+        type: 'get',
+        success: function (res) {
+          console.log(res);
+          $('.app-name').append(`
+            <div id="star">
+              <span class="github-btn github-stargazers" id="github-btn">
+                <a class="gh-btn" id="gh-btn" href="https://github.com/iamtang/nobita" target="_blank">
+                  <span class="gh-ico"></span> 
+                  <span class="gh-text" id="gh-text">Star</span>
+                </a> 
+                <a class="gh-count" id="gh-count" href="https://github.com/iamtang/nobita/stargazers" target="_blank" style="display: block;">${res.watchers}</a>
+              </span>
+            </div>
+         `);
+        }
+      })
+
+    }
+
   </script>
   <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
   <script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
