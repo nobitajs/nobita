@@ -5,6 +5,12 @@
 - 如果发现新的问题无法解决， 欢迎提交 [Nobita issue](https://github.com/iamtang/nobita/issues)
 - 定期更新
 
+## v0.8.2
+  - 修复 中间件 与 定时任务冲突bug。[#3](https://github.com/iamtang/nobita/issues/3)
+
+## v0.8.1
+  - 更新 nobita 内部执行方式。
+
 ## v0.7.9
   - 修复 prod 环境打不出 logger 日志。
   - 增加 允许查看日志文件 [查看](/logger?id=允许查看日志文件)
