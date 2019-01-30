@@ -18,7 +18,7 @@ https://npmcharts.com/compare/nobita?minimal=true
 
 [npm-image]: https://img.shields.io/npm/v/nobita.svg?style=flat-square
 [npm-script]:
-https://img.shields.io/github/languages/top/iamtang/nobita.svg
+https://img.shields.io/github/languages/top/nobitajs/nobita.svg
 [npm-size]:
 https://img.shields.io/bundlephobia/min/nobita.svg
 [npm-downloads]:
@@ -28,11 +28,11 @@ https://img.shields.io/npm/l/nobita.svg
 [npm-node]:
 https://img.shields.io/node/v/nobita.svg
 [npm-commit]:
-https://img.shields.io/github/last-commit/iamtang/nobita.svg
+https://img.shields.io/github/last-commit/nobitajs/nobita.svg
 ## 介绍
 Nobita 是一个基于Koa而诞生的一款框架。
 
-[官方网站](https://iamtang.github.io/nobita/)
+[官方网站](https://nobitajs.github.io/nobita/)
 
 ```js
 // app.js
@@ -45,4 +45,4 @@ $ node app.js
 
 ## License
 
-[MIT](https://github.com/iamtang/nobita/blob/master/LICENSE)
+[MIT](https://github.com/nobitajs/nobita/blob/master/LICENSE)

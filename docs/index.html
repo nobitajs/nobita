@@ -184,7 +184,7 @@
       showLevel: true,
       mergeNavbar: true,
       name: 'Nobita',
-      repo: 'https://github.com/iamtang/nobita/',
+      repo: 'https://github.com/nobitajs/nobita/',
       homepage: 'what.md',
       search: {
         maxAge: 86400000, // 过期时间，单位毫秒，默认一天
@@ -204,18 +204,18 @@
     }
     window.onload = function () {
       $.ajax({
-        url: 'https://api.github.com/repos/iamtang/nobita',
+        url: 'https://api.github.com/repos/nobitajs/nobita',
         type: 'get',
         success: function (res) {
           $('small').text();
           $('.app-name').append(`
             <div id="star">
               <span class="github-btn github-stargazers" id="github-btn">
-                <a class="gh-btn" id="gh-btn" href="https://github.com/iamtang/nobita" target="_blank">
+                <a class="gh-btn" id="gh-btn" href="https://github.com/nobitajs/nobita" target="_blank">
                   <span class="gh-ico"></span> 
                   <span class="gh-text" id="gh-text">Star</span>
                 </a> 
-                <a class="gh-count" id="gh-count" href="https://github.com/iamtang/nobita/stargazers" target="_blank" style="display: block;">${res.watchers}</a>
+                <a class="gh-count" id="gh-count" href="https://github.com/nobitajs/nobita/stargazers" target="_blank" style="display: block;">${res.watchers}</a>
               </span>
             </div>
          `);

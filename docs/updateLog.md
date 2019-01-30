@@ -2,7 +2,7 @@
 # 更新日志
 ---
 
-- 如果发现新的问题无法解决， 欢迎提交 [Nobita issue](https://github.com/iamtang/nobita/issues)
+- 如果发现新的问题无法解决， 欢迎提交 [Nobita issue](https://github.com/nobitajs/nobita/issues)
 - 定期更新
 
 ## v0.8.5
@@ -14,7 +14,7 @@
   - 修复 mongo 密码登陆bug。
 
 ## v0.8.2
-  - 修复 中间件 与 定时任务冲突bug。[#3](https://github.com/iamtang/nobita/issues/3)
+  - 修复 中间件 与 定时任务冲突bug。[#3](https://github.com/nobitajs/nobita/issues/3)
 
 ## v0.8.1
   - 更新 nobita 内部执行方式。
