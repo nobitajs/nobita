@@ -1,0 +1,11 @@
+stages:
+- deploy_master
+
+#master分支的部署
+deploy_master:
+  stage: deploy_master
+  script:
+    - ls
+    - echo 'hello world!'
+  only:
+    - master
