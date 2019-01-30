@@ -207,7 +207,7 @@
         url: 'https://api.github.com/repos/iamtang/nobita',
         type: 'get',
         success: function (res) {
-          console.log(res);
+          $('small').text();
           $('.app-name').append(`
             <div id="star">
               <span class="github-btn github-stargazers" id="github-btn">
@@ -221,7 +221,6 @@
          `);
         }
       })
-
     }
 
   </script>

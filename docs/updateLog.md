@@ -5,6 +5,11 @@
 - 如果发现新的问题无法解决， 欢迎提交 [Nobita issue](https://github.com/iamtang/nobita/issues)
 - 定期更新
 
+## v0.8.5
+  - 修复 helper.js 不存在产生的bug。
+  - 增加启东时判断 router 是否存在。
+  - 增加 定时任务 启动异常抛出错误。
+
 ## v0.8.3
   - 修复 mongo 密码登陆bug。
 
