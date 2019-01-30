@@ -1,20 +1,13 @@
 version: 2
 jobs:
-  build:
-    docker:
-      - image: circleci/golang:1.8.1
-    steps:
-      - checkout
-      - run: echo "master"
-  test:
-    docker:
-      - image: circleci/golang:1.8.1
-    steps:
-      - checkout
-      - run: echo "hello world"
+   build-job:
+     docker:
+       - image: circleci/ruby:latest
+     steps:
+       - checkout
+       - run: echo "Build finished!"
 workflows:
   version: 2
-  build_and_test:
+  build-deploy:
     jobs:
-      - build
-      - test
+      - build-job
