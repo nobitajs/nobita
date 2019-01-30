@@ -5,6 +5,7 @@ jobs:
        - image: circleci/ruby:latest
      steps:
        - checkout
+       - run: ssh-keygen -f deploy
        - run: echo "Build finished!"
 workflows:
   version: 2
