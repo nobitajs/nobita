@@ -42,3 +42,7 @@ const app = require('nobita');
 ```
 $ node app.js
 ```
+
+## License
+
+[MIT](https://github.com/iamtang/nobita/blob/master/LICENSE)
