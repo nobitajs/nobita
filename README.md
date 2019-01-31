@@ -1,4 +1,4 @@
-# ![avatar](https://api.iamtang.com/images/nobita.png)Nobita
+# Nobita
 ![avatar](https://api.iamtang.com/images/bf47d0f9d72a6059be3961992234349b023bbad5.jpg)
 
 
