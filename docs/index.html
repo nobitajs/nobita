@@ -204,9 +204,9 @@
 
     }
     window.onload = function () {
-      if (typeof navigator.serviceWorker !== 'undefined') {
-        navigator.serviceWorker.register('sw.js')
-      }
+      // if (typeof navigator.serviceWorker !== 'undefined') {
+      //   navigator.serviceWorker.register('sw.js')
+      // }
       $.ajax({
         url: 'https://api.github.com/repos/nobitajs/nobita',
         type: 'get',
