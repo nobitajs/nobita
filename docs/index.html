@@ -8,6 +8,7 @@
   <meta name="Nobita" content="Nobita">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
+  <link rel="stylesheet" href="//unpkg.com/gitalk/dist/gitalk.css">
   <script src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
   <link rel="icon" href="https://api.iamtang.com/images/favicon.png" type="image/x-icon" />
   <style>
@@ -176,13 +177,12 @@
       maxLevel: 6,
       tocLevel: 6,
       subMaxLevel: 2,
-      formatUpdated: '{MM}/{DD} {HH}:{mm}',
-      mergeNavbar: true,
       coverpage: true,
       loadSidebar: true,
       autoHeader: true,
       showLevel: true,
       mergeNavbar: true,
+      notFoundPage: true,
       name: 'Nobita',
       repo: 'https://github.com/nobitajs/nobita/',
       homepage: 'what.md',
@@ -201,8 +201,12 @@
         previousText: '上一章节',
         nextText: '下一章节',
       }
+
     }
     window.onload = function () {
+      if (typeof navigator.serviceWorker !== 'undefined') {
+        navigator.serviceWorker.register('sw.js')
+      }
       $.ajax({
         url: 'https://api.github.com/repos/nobitajs/nobita',
         type: 'get',
@@ -229,6 +233,20 @@
   <script src="//unpkg.com/docsify/lib/plugins/ga.js"></script>
   <script src="//unpkg.com/docsify-copy-code@2.0.2/dist/docsify-copy-code.min.js"></script>
   <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <script src="//unpkg.com/docsify/lib/plugins/gitalk.min.js"></script>
+  <script src="//unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script>
+    const gitalk = new Gitalk({
+      clientID: '51f274fe5eddabc3cacb',
+      clientSecret: 'f6328de7daf87b133a12c65a691373595f371327',
+      repo: 'nobita',
+      owner: 'iamtang',
+      admin: ['iamtang'],
+      // facebook-like distraction free mode
+      distractionFreeMode: false
+    })
+  </script>
+
 </body>
 
 </html>
