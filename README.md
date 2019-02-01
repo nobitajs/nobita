@@ -45,6 +45,9 @@ $ npm run local
 ```
 访问：[http://127.0.0.1:6001](http://127.0.0.1:6001)
 
+## 例子
+[example](https://github.com/nobitajs/example)
+
 ## License
 
 [MIT](https://github.com/nobitajs/nobita/blob/master/LICENSE)
