@@ -21,6 +21,7 @@ const catchError = require('nobita-catch');
 class Nobita extends Koa {
   constructor() {
     super();
+    try {this.Sequelize = require('Sequelize');} catch (e) {}
     require('nobita-config')(this);
     this.context = this._context;
     require('nobita-nunjucks')(this);
@@ -52,12 +53,6 @@ class Nobita extends Koa {
       .use(Router.routes());
 
     const server = this.listen(this.config.listen.port, this.config.listen.callback);
-    if (this.config.socket) {
-      const WebSocket = require('ws');
-      this.wss = new WebSocket.Server({ server });
-    }
-    console.log(`env:${this.config.env}`);
-
   };
 
   get controllers() {

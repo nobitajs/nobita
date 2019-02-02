@@ -5,7 +5,7 @@
 - 如果发现新的问题无法解决， 欢迎提交 [Nobita issue](https://github.com/nobitajs/nobita/issues)
 - 定期更新
 
-## v0.8.6
+## v0.8.8
   - 去冗余，删除不必要的加载。
   - 增加 ready.js 可启动完成前执行。
 
