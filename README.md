@@ -18,7 +18,7 @@ https://npmcharts.com/compare/nobita?minimal=true
 [npm-script]:
 https://img.shields.io/github/languages/top/nobitajs/nobita.svg
 [npm-size]:
-https://img.shields.io/bundlephobia/min/nobita.svg
+https://img.shields.io/bundlephobia/minzip/nobita.svg?style=flat
 [npm-downloads]:
 https://img.shields.io/npm/dm/nobita.svg
 [npm-license]:
