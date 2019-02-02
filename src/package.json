@@ -13,19 +13,19 @@
     "nobita-init": "0.0.1",
     "nobita-router": "0.0.6",
     "nobita-service": "0.0.5",
-    "nobita-mongo": "0.1.7",
-    "nobita-mysql": "0.0.4",
+    "nobita-mongo": "0.1.8",
+    "nobita-mysql": "0.0.5",
     "nobita-controllers": "0.0.3",
     "nobita-middleware": "0.0.8",
-    "nobita-nunjucks": "0.0.6",
-    "nobita-logger": "0.0.7",
+    "nobita-nunjucks": "0.0.7",
+    "nobita-logger": "0.0.9",
     "nobita-xss": "0.0.3",
     "nobita-curl": "0.0.6",
     "nobita-cache": "0.0.4",
-    "nobita-catch": "0.0.6",
+    "nobita-catch": "0.0.9",
     "nobita-require": "0.0.2",
     "nobita-config": "0.0.4",
-    "nobita-session-redis": "0.0.3",
+    "nobita-session-redis": "0.0.4",
     "koa-body": "4.0.4",
     "koa-helmet": "4.0.0",
     "koa-static-plus": "0.1.1",
@@ -39,7 +39,7 @@
   ],
   "repository": { 
     "type" : "git", 
-    "url" : "https://github.com/iamtang/nobita.git"
+    "url" : "https://github.com/nobitajs/nobita.git"
   },
   "keywords": [
     "koa",
@@ -49,7 +49,7 @@
     "node": ">=8.0.0"
   },
   "bugs": {
-    "url": "https://github.com/iamtang/nobita/issues",
+    "url": "https://github.com/nobitajs/nobita/issues",
     "email": "303907720@qq.com"
   },
   "author": "JJ",

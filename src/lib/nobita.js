@@ -11,6 +11,7 @@ const init = require('nobita-init');
 const Router = require('nobita-router');
 const Controllers = require('nobita-controllers');
 const myRouter = requireJS('./app/router.js');
+const ready = requireJS('./ready.js');
 const nobitaHelper = require('nobita-helper');
 const service = require('nobita-service');
 const curl = require('nobita-curl');
@@ -36,13 +37,7 @@ class Nobita extends Koa {
       const main = serve(this.config.static.path, this.config.static);
       this.use(main);
     }
-
-    const server = this.listen(this.config.listen.port, this.config.listen.callback);
-    if (this.config.socket) {
-      const WebSocket = require('ws');
-      this.wss = new WebSocket.Server({ server });
-    }
-
+    ready && ready(this);
     this
       .use(favicon(path.join(__dirname, './favicon.ico')))
       .use(catchError)
@@ -55,7 +50,14 @@ class Nobita extends Koa {
       .use(service)
       .use(compose)
       .use(Router.routes());
+
+    const server = this.listen(this.config.listen.port, this.config.listen.callback);
+    if (this.config.socket) {
+      const WebSocket = require('ws');
+      this.wss = new WebSocket.Server({ server });
+    }
     console.log(`env:${this.config.env}`);
+
   };
 
   get controllers() {
@@ -75,7 +77,11 @@ class Nobita extends Koa {
 
     return _.merge(this.context, _context);
   }
- 
+
+  start(options) {
+    options.before(this);
+  }
+
 }
 
 module.exports = Nobita;
