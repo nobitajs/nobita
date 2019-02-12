@@ -5,6 +5,9 @@
 - 如果发现新的问题无法解决， 欢迎提交 [Nobita issue](https://github.com/nobitajs/nobita/issues)
 - 定期更新
 
+## v0.9.0
+  - 优化 curl 里的方法。
+
 ## v0.8.9
   - 修改 nobita-mongo promise改为async await方式。
 
