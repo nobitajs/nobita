@@ -12,7 +12,7 @@
     "nobita-schedule": "0.0.4",
     "nobita-init": "0.0.1",
     "nobita-router": "0.0.6",
-    "nobita-service": "0.0.5",
+    "nobita-service": "0.0.6",
     "nobita-mongo": "0.1.9",
     "nobita-mysql": "0.0.5",
     "nobita-controllers": "0.0.3",
