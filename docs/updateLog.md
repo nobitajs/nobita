@@ -7,6 +7,8 @@
 
 ## v0.9.0
   - 优化 curl 里的方法。
+  - 优化 service、controllers 里的方法。
+  - 增加中间件不存在的时候报错提示。
 
 ## v0.8.9
   - 修改 nobita-mongo promise改为async await方式。

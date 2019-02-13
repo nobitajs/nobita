@@ -16,7 +16,7 @@
     "nobita-mongo": "0.1.9",
     "nobita-mysql": "0.0.5",
     "nobita-controllers": "0.0.4",
-    "nobita-middleware": "0.0.8",
+    "nobita-middleware": "0.0.9",
     "nobita-nunjucks": "0.0.7",
     "nobita-logger": "0.0.9",
     "nobita-xss": "0.0.3",
