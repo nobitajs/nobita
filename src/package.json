@@ -1,6 +1,6 @@
 {
   "name": "nobita",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "description": "nobita",
   "main": "index.js",
   "dependencies": {
@@ -8,11 +8,11 @@
     "koa-session": "5.8.2",
     "koa-favicon": "2.0.1",
     "koa-router": "7.4.0",
-    "nobita-helper": "0.0.1",
+    "nobita-helper": "0.0.3",
     "nobita-schedule": "0.0.6",
     "nobita-init": "0.0.1",
-    "nobita-router": "0.0.6",
-    "nobita-service": "0.0.6",
+    "nobita-router": "0.0.7",
+    "nobita-service": "0.0.8",
     "nobita-mongo": "0.1.9",
     "nobita-mysql": "0.0.5",
     "nobita-controllers": "0.0.4",

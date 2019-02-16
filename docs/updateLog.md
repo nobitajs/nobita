@@ -5,9 +5,10 @@
 - 如果发现新的问题无法解决， 欢迎提交 [Nobita issue](https://github.com/nobitajs/nobita/issues)
 - 定期更新
 
-## v0.9.1
+## v0.9.2
   - 修复过滤漏过滤大于号。
-  - 优化了 nobita-require。 
+  - 优化了 nobita-require。
+  - 解决框架内存泄露问题。 
 
 ## v0.9.0
   - 优化 curl 里的方法。
