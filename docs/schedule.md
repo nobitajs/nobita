@@ -47,3 +47,32 @@ module.exports = {
   },
 };
 ```
+
+## 手动触发定时器方法
+```js
+// app/schedule/say.js
+module.exports = {
+  schedule: {
+    cron: '0 0 10 * * *', 
+    type: 'worker'
+  },
+  async task(ctx) {
+    // 定时执行函数
+    // ...
+    console.log('say');
+  },
+};
+
+```
+
+```js
+// app/controllers/test.js
+module.exports = {
+  async index() {
+    const ctx = this;
+    ctx.schedule.say();
+    ...
+  }
+};
+
+```

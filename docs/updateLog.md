@@ -5,7 +5,10 @@
 - 如果发现新的问题无法解决， 欢迎提交 [Nobita issue](https://github.com/nobitajs/nobita/issues)
 - 定期更新
 
-## v0.9.2
+## v0.9.4
+  - 增加手动执行定时器方法。[查看](/schedule?id=手动触发定时器方法)
+
+## v0.9.3
   - 修复中间件拦截了定时任务。
 
 ## v0.9.2
