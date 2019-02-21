@@ -13,7 +13,7 @@
     "nobita-init": "0.0.1",
     "nobita-router": "0.0.7",
     "nobita-service": "0.0.8",
-    "nobita-mongo": "0.1.9",
+    "nobita-mongo": "0.2.0",
     "nobita-mysql": "0.0.5",
     "nobita-controllers": "0.0.4",
     "nobita-middleware": "0.1.0",

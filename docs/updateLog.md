@@ -7,6 +7,7 @@
 
 ## v0.9.4
   - 增加手动执行定时器方法。[查看](/schedule?id=手动触发定时器方法)
+  - 修复 mongo 密码登陆bug。
 
 ## v0.9.3
   - 修复中间件拦截了定时任务。
@@ -32,9 +33,6 @@
   - 修复 helper.js 不存在产生的bug。
   - 增加启东时判断 router 是否存在。
   - 增加 定时任务 启动异常抛出错误。
-
-## v0.8.3
-  - 修复 mongo 密码登陆bug。
 
 ## v0.8.2
   - 修复 中间件 与 定时任务冲突bug。[#3](https://github.com/nobitajs/nobita/issues/3)
