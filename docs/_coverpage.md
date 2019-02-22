@@ -1,7 +1,7 @@
 
 ![avatar](https://api.iamtang.com/images/nobita_logo.png)
 
-# Nobita<small>0.9.4</small>
+# Nobita<small>0.9.5</small>
 
 > 一款基于Koa的轻量级框架
 
