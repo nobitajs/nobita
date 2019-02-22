@@ -148,10 +148,22 @@ module.exports = {
 }
 ```
 
+## updateOne
+- 修改单条数据
+```js
+// app/controllers/test.js
+module.exports = {
+  async get() {
+    const ctx = this;
+    const res = await ctx.db.database.updateOne({ name: 'Nobita' }, { author: 'JJ' }, [options]);
+    ctx.body = res;
+  }
+}
+```
+
 update - [options]
 - safe (boolean)： 默认为true。安全模式。
 - upsert (boolean)： 默认为false。如果不存在则创建新记录。
-- multi (boolean)： 默认为false。是否更新多个查询记录。
 - runValidators： 如果值为true，执行Validation验证。
 - setDefaultsOnInsert： 如果upsert选项为true，在新建时插入文档定义的默认值。
 - strict (boolean)： 以strict模式进行更新。
