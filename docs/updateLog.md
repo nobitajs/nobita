@@ -8,6 +8,7 @@
 ## v0.9.5
   - 修复 mongo update时如果数据不存在生成的数据没有 createTime问题。
   - 更新了mongoose，增加了updateone，去除了 multi。
+  - 修复 helper 非函数时数据丢失。
 
 ## v0.9.4
   - 增加手动执行定时器方法。[查看](/schedule?id=手动触发定时器方法)
