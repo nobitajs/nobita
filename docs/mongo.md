@@ -92,6 +92,7 @@ find - [options]
 - limit (number)： 默认为20。查询条数。
 - page  (number)： 默认为0。查询页码。
 - sort  (object)： 排序条件
+- filter (object)：过滤输出字段
 
 ## findOne
 - 查询一条数据

@@ -5,6 +5,9 @@
 - 如果发现新的问题无法解决， 欢迎提交 [Nobita issue](https://github.com/nobitajs/nobita/issues)
 - 定期更新
 
+## v0.9.6
+  - mongo find 增加 filter 字段。
+
 ## v0.9.5
   - 修复 mongo update时如果数据不存在生成的数据没有 createTime问题。
   - 更新了mongoose，增加了updateone，去除了 multi。
