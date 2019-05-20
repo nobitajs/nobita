@@ -5,6 +5,10 @@
 - 如果发现新的问题无法解决， 欢迎提交 [Nobita issue](https://github.com/nobitajs/nobita/issues)
 - 定期更新
 
+## v0.9.8
+  - 修复 config middlewares合并问题。
+  - 默认加载 nunjucks 模板。
+
 ## v0.9.7
   - mongo 更新变量名。
   - mongo findOne数据toObject()。
