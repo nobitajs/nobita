@@ -20,7 +20,7 @@
     "nobita-nunjucks": "0.0.8",
     "nobita-logger": "0.0.9",
     "nobita-xss": "0.0.4",
-    "nobita-curl": "0.0.7",
+    "nobita-curl": "0.0.8",
     "nobita-cache": "0.0.4",
     "nobita-catch": "0.0.9",
     "nobita-require": "0.0.3",
