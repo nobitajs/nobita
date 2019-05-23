@@ -8,6 +8,7 @@
 ## v0.9.9
   - nobita-mongo findOne 增加filter。
   - nobita-curl 修改错误返回值。
+  - 增加版本号 version。
 
 ## v0.9.8
   - 修复 config middlewares合并问题。

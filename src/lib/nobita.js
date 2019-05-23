@@ -17,11 +17,12 @@ const service = require('nobita-service');
 const curl = require('nobita-curl');
 const xss = require('nobita-xss');
 const catchError = require('nobita-catch');
+const { version } = require('../package.json');
 
 class Nobita extends Koa {
   constructor() {
     super();
-    try {this.Sequelize = require('Sequelize');} catch (e) {}
+    try { this.Sequelize = require('Sequelize'); } catch (e) { }
     require('nobita-config')(this);
     this.context = this._context;
     require('nobita-nunjucks')(this);
@@ -68,6 +69,7 @@ class Nobita extends Koa {
     _context.helper = requireJS('./app/extend/helper.js');
     _context.cache = require('nobita-cache')(this.config.cache);
     this.curl = _context.curl = curl;
+    this.version = _context.version = version;
     _context.app = this;
 
     return _.merge(this.context, _context);
