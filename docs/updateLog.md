@@ -5,6 +5,11 @@
 - 如果发现新的问题无法解决， 欢迎提交 [Nobita issue](https://github.com/nobitajs/nobita/issues)
 - 定期更新
 
+## v0.9.10
+  - 修复 nobita-mongo update/updateOne的params问题。
+  - 增加 curl 出错时 data 字段。
+
+
 ## v0.9.9
   - nobita-mongo findOne 增加filter。
   - nobita-curl 修改错误返回值。
