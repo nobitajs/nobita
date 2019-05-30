@@ -6,6 +6,9 @@
 - 定期更新
 
 ## v0.9.10
+  - 减少 lodash 体积。
+
+## v0.9.10
   - 修复 nobita-mongo update/updateOne的params问题。
   - 增加 curl 出错时 data 字段。
 

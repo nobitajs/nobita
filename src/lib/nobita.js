@@ -5,7 +5,7 @@ const helmet = require("koa-helmet");
 const session = require('koa-session');
 const favicon = require('koa-favicon');
 const path = require('path');
-const _ = require('lodash');
+const merge = require('lodash/merge');
 const requireJS = require('nobita-require');
 const init = require('nobita-init');
 const Router = require('nobita-router');
@@ -72,7 +72,7 @@ class Nobita extends Koa {
     this.version = _context.version = version;
     _context.app = this;
 
-    return _.merge(this.context, _context);
+    return merge(this.context, _context);
   }
 
   start(options) {
