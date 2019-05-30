@@ -5,7 +5,7 @@
 - 如果发现新的问题无法解决， 欢迎提交 [Nobita issue](https://github.com/nobitajs/nobita/issues)
 - 定期更新
 
-## v0.9.10
+## v0.9.11
   - 减少 lodash 体积。
 
 ## v0.9.10
