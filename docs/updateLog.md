@@ -5,8 +5,9 @@
 - 如果发现新的问题无法解决， 欢迎提交 [Nobita issue](https://github.com/nobitajs/nobita/issues)
 - 定期更新
 
-## v0.9.11
+## v0.9.14
   - 减少 lodash 体积。
+  - 修改 curl 方式。
 
 ## v0.9.10
   - 修复 nobita-mongo update/updateOne的params问题。
