@@ -23,8 +23,8 @@
   * [定时任务](schedule)
   * [异常处理](catch)
   * [事件监听](event)
-  * [进程守护](pm2)
-  * [本地开发](nodemon)
+  * [进程守护](scripts)
+  * [本地开发](scripts_local)
 * 常见文件
   * [更新日志](updateLog)
   
