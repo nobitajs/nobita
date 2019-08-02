@@ -1,6 +1,6 @@
 {
   "name": "nobita",
-  "version": "0.9.17",
+  "version": "0.9.18",
   "description": "nobita",
   "main": "index.js",
   "dependencies": {
@@ -24,7 +24,7 @@
     "nobita-cache": "0.0.4",
     "nobita-catch": "0.1.0",
     "nobita-require": "0.0.3",
-    "nobita-config": "0.0.6",
+    "nobita-config": "0.0.7",
     "nobita-session-redis": "0.0.5",
     "koa-body": "4.0.4",
     "koa-helmet": "4.0.0",
