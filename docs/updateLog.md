@@ -9,6 +9,7 @@
 ## v0.9.19
   - 增大body的限制大小。
   - 更新 nobita-mongo，增加删除集合（drop）。
+  - 修复 nobita-scripts 后台运行生产环境问题。
 
 ## v0.9.17
   - 减少 lodash 体积。

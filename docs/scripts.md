@@ -24,11 +24,10 @@ Worker 进程是负责真正的业务代码。
   - -i [value] 进程数
   - -e [value] 运行环境
   - -n [value] 应用名称
-  - --silent [boolean] 是否输出到控制台
+  - --detached 是否后台运行
 
 
 - stop \[name\](停止应用)
-  - -n [value] 应用名称
 
 ## 进程间通讯
 
