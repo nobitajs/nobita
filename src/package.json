@@ -1,6 +1,6 @@
 {
   "name": "nobita",
-  "version": "0.9.19",
+  "version": "0.9.20",
   "description": "nobita",
   "main": "index.js",
   "dependencies": {
@@ -9,7 +9,7 @@
     "koa-favicon": "2.0.1",
     "koa-router": "7.4.0",
     "nobita-helper": "0.0.5",
-    "nobita-schedule": "0.0.7",
+    "nobita-schedule": "0.0.8",
     "nobita-init": "0.0.1",
     "nobita-router": "0.0.7",
     "nobita-service": "0.0.9",
