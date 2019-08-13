@@ -7,14 +7,14 @@
 {
   ...
   "scripts": {
-    "local": "nobita-scripts local ./app.js",
+    "local": "ns local ./app.js",
   },
   ...
 }
 ```
 
 - local \[app.js\](启动本地开发)
-  - --ignored [value] 忽略文件
+  - --ignored [value] 忽略文件, 多个文件逗号隔开。
 
 
 > Ctrl + C 关闭进程

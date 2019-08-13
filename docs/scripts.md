@@ -13,17 +13,17 @@ Worker 进程是负责真正的业务代码。
 {
   ...
   "scripts": {
-    "prod": "nobita-scripts prod ./app.js -i 2 --silent false -n demo",
-    "stop": "nobita-scripts stop demo",
+    "prod": "ns start ./app.js -i 2 --silent false -n demo",
+    "stop": "ns stop demo",
   },
   ...
 }
 ```
 
 - prod \[app.js\](启动应用)
-  - -i [value] 进程数
-  - -e [value] 运行环境
-  - -n [value] 应用名称
+  - -i --instances [value] 进程数
+  - --env [value] 运行环境
+  - -name [value] 应用名称
   - --detached 是否后台运行
 
 
