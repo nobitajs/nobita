@@ -5,6 +5,8 @@
 - 如果发现新的问题无法解决， 欢迎提交 [Nobita issue](https://github.com/nobitajs/nobita/issues)
 - 定期更新
 
+## v0.9.23
+  - 更新了 nobita-scripts 的启动命令
 
 ## v0.9.21
   - 增大body的限制大小。
