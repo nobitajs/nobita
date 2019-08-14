@@ -1,11 +1,11 @@
 # 进程守护
-> Nobita 框架进程守护使用的是 nobita-scripts，当然也能换其他的守护模块。
+> Nobita 框架进程守护使用的是 ns，当然也能换其他的守护模块。
 
 ### Master进程
 Master 进程负责管理所有的 Worker进程， 不运行任何的业务代码，启动、守护 Worker 进程，避免 Worker 进程报错而退出，且负责 Worker 进程之间的通讯。
 
 ### Worker进程
-Worker 进程是负责真正的业务代码。
+Worker 进程是负责真正的业务代码。
 
 ## nobita-scripts 配置
 - package.json
@@ -20,14 +20,15 @@ Worker 进程是负责真正的业务代码。
 }
 ```
 
-- prod \[app.js\](启动应用)
+- start \[app.js\](启动应用)
   - -i --instances [value] 进程数
   - --env [value] 运行环境
   - -name [value] 应用名称
   - --detached 是否后台运行
 
-
 - stop \[name\](停止应用)
+
+- list \[name\](查看应用情况)
 
 ## 进程间通讯
 
