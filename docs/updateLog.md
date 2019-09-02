@@ -5,9 +5,10 @@
 - 如果发现新的问题无法解决， 欢迎提交 [Nobita issue](https://github.com/nobitajs/nobita/issues)
 - 定期更新
 
-## v0.9.24
+## v0.9.25
   - 更新了 nobita-scripts 的启动命令。
   - 减少了内部读写文件次数。
+  - 增加查询mongo集合列表。
 
 ## v0.9.21
   - 增大body的限制大小。
