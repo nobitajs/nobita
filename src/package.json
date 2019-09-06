@@ -1,6 +1,6 @@
 {
   "name": "nobita",
-  "version": "0.9.26",
+  "version": "0.9.28",
   "description": "nobita",
   "main": "index.js",
   "dependencies": {
@@ -18,7 +18,7 @@
     "nobita-controllers": "0.0.6",
     "nobita-middleware": "0.1.1",
     "nobita-nunjucks": "0.0.8",
-    "nobita-logger": "0.0.9",
+    "nobita-logger": "0.1.1",
     "nobita-xss": "0.0.4",
     "nobita-curl": "0.1.2",
     "nobita-cache": "0.0.4",
