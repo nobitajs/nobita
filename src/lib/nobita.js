@@ -12,8 +12,6 @@ const Router = require('nobita-router');
 const Controllers = require('nobita-controllers');
 const myRouter = requireJS('./app/router.js');
 const ready = requireJS('./ready.js');
-const nobitaHelper = require('nobita-helper');
-const service = require('nobita-service');
 const curl = require('nobita-curl');
 const xss = require('nobita-xss');
 const catchError = require('nobita-catch');
@@ -32,6 +30,8 @@ class Nobita extends Koa {
     require('nobita-session-redis')(this);
     require('nobita-schedule')(this);
     const compose = require('nobita-middleware')(this);
+    const service = require('nobita-service')(this);
+    const nobitaHelper = require('nobita-helper')(this);
     myRouter && myRouter(this);
 
     /** 静态资源路径 */
@@ -66,7 +66,6 @@ class Nobita extends Koa {
 
   get _context() {
     let _context = requireJS('./app/extend/context.js') || {};
-    _context.helper = requireJS('./app/extend/helper.js');
     _context.cache = require('nobita-cache')(this.config.cache);
     this.curl = _context.curl = curl;
     this.version = _context.version = version;
@@ -77,6 +76,10 @@ class Nobita extends Koa {
 
   start(options) {
     options.before(this);
+  }
+
+  createAnonymousContext(){
+    return this.context;
   }
 
 }
