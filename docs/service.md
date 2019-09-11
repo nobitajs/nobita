@@ -16,10 +16,10 @@ app/service/test_b.js => ctx.service.test_b
 
 ```js
 // app/service/test.js
-module.exports = ctx => { 
+module.exports = app => { 
   return {
     async getName() {
-      // ...
+      // ... this => ctx
     }
   }
 }

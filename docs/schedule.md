@@ -4,6 +4,7 @@
 > Nobita 提供了一套机制来让定时任务的编写和维护更加优雅。
 
 - 所有的定时任务都统一存放在 app/schedule 目录下，每一个文件都是一个独立的定时任务。
+- 注意：需要使用 nobita-scripts 来启动服务，否则不支持定时任务。
 
 ## 编写任务
 ```js
@@ -12,6 +13,7 @@ module.exports = {
   schedule: {
     cron: '*/2 * * * * *', // 2秒间隔
     type: 'worker', // 指定所有的 worker 都需要执行
+    env: ['prod'] // 执行环境
   },
   async task(ctx) {
     // 定时执行函数
@@ -25,6 +27,7 @@ module.exports = {
   - worker 只有一个 worker 会执行这个定时任务,
   - all 每个 worker 都会执行这个定时任务。
 - task 的入参为 ctx，匿名的 Context 实例，可以通过它调用 service 等。
+- env 执行环境
 
 
 ```
