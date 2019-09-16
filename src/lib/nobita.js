@@ -18,10 +18,34 @@ const catchError = require('nobita-catch');
 const { version } = require('../package.json');
 
 class Nobita extends Koa {
-  constructor() {
+  constructor(options = {}) {
     super();
+    this.options = options;
+    this.start();
+  };
+
+  get controllers() {
+    return Controllers;
+  };
+
+  get router() {
+    return Router;
+  };
+
+  get _context() {
+    let _context = requireJS('./app/extend/context.js') || {};
+    _context.cache = require('nobita-cache')(this.config.cache);
+    this.curl = _context.curl = curl;
+    this.version = _context.version = version;
+    _context.app = this;
+
+    return merge(this.context, _context);
+  }
+
+  async start() {
+    this.options.before && this.options.before(this);
     try { this.Sequelize = require('Sequelize'); } catch (e) { }
-    require('nobita-config')(this);
+    await require('nobita-config')(this);
     this.context = this._context;
     require('nobita-nunjucks')(this);
     require('nobita-logger')(this);
@@ -30,7 +54,7 @@ class Nobita extends Koa {
     require('nobita-session-redis')(this);
     require('nobita-schedule')(this);
     const compose = require('nobita-middleware')(this);
-    const service = require('nobita-service')(this);
+    const service = await require('nobita-service')(this);
     const nobitaHelper = require('nobita-helper')(this);
     myRouter && myRouter(this);
 
@@ -54,28 +78,6 @@ class Nobita extends Koa {
       .use(Router.routes());
 
     const server = this.listen(this.config.listen.port, this.config.listen.callback);
-  };
-
-  get controllers() {
-    return Controllers;
-  };
-
-  get router() {
-    return Router;
-  };
-
-  get _context() {
-    let _context = requireJS('./app/extend/context.js') || {};
-    _context.cache = require('nobita-cache')(this.config.cache);
-    this.curl = _context.curl = curl;
-    this.version = _context.version = version;
-    _context.app = this;
-
-    return merge(this.context, _context);
-  }
-
-  start(options) {
-    options.before(this);
   }
 
   createAnonymousContext(){
