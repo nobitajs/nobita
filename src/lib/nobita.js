@@ -34,7 +34,7 @@ class Nobita extends Koa {
 
   get _context() {
     let _context = requireJS('./app/extend/context.js') || {};
-    _context.cache = require('nobita-cache')(this.config.cache);
+    this.cache = _context.cache = require('nobita-cache')(this.config.cache);
     this.curl = _context.curl = curl;
     this.version = _context.version = version;
     _context.app = this;

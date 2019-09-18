@@ -5,10 +5,12 @@
 - 如果发现新的问题无法解决， 欢迎提交 [Nobita issue](https://github.com/nobitajs/nobita/issues)
 - 定期更新
 
-## v0.9.33
+## v0.9.35
   - 更新 service helper 加载方式。
   - 优化 定时任务 方式。
   - 修复不适用ns启动时引起的bug。
+  - 增加 service、config 支持 async await 方式。
+  - app 增加 cache 函数
 
 ## v0.9.29
   - 更新了 nobita-scripts 的启动命令。
