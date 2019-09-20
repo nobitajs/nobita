@@ -63,7 +63,7 @@ class Nobita extends Koa {
       const main = serve(this.config.static.path, this.config.static);
       this.use(main);
     }
-    ready && ready(this);
+    ready && await ready(this);
     this
       .use(favicon(path.join(__dirname, './favicon.ico')))
       .use(catchError)
