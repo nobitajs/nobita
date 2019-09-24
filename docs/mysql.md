@@ -4,7 +4,7 @@
 - 因插件较大，框架就不默认引入，如需要使用 mysql 则自行 install 即可。
 
 ```
-$ npm install -D Sequelize mysql2
+$ npm install -D sequelize mysql2
 ```
 
 ## 配置 Mysql

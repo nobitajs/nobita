@@ -44,7 +44,7 @@ class Nobita extends Koa {
 
   async start() {
     this.options.before && this.options.before(this);
-    try { this.Sequelize = require('Sequelize'); } catch (e) { }
+    try { this.Sequelize = require('sequelize'); } catch (e) { }
     await require('nobita-config')(this);
     this.context = this._context;
     require('nobita-nunjucks')(this);

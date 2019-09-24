@@ -5,6 +5,9 @@
 - 如果发现新的问题无法解决， 欢迎提交 [Nobita issue](https://github.com/nobitajs/nobita/issues)
 - 定期更新
 
+## v0.9.38
+  - 修复 sequelize 大小写问题。
+
 ## v0.9.37
   - 更新 service helper 加载方式。
   - 优化 定时任务 方式。
