@@ -1,5 +1,5 @@
 # Nobita
-![avatar](https://api.iamtang.com/images/bf47d0f9d72a6059be3961992234349b023bbad5.jpg)
+![avatar](http://www.iamtang.com/images/bf47d0f9d72a6059be3961992234349b023bbad5.jpg)
 
 [![NPM version][npm-image]][npm-url]
 [![NPM script][npm-script]][npm-url]
