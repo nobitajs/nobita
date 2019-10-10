@@ -8,6 +8,7 @@
 ## v0.9.38
   - 修复 sequelize 大小写问题。
   - 修复 mongo delete 方法。
+  - koa 更新到2.8.2。
 
 ## v0.9.37
   - 更新 service helper 加载方式。

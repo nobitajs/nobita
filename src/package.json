@@ -1,10 +1,10 @@
 {
   "name": "nobita",
-  "version": "0.9.37",
+  "version": "0.9.38",
   "description": "nobita",
   "main": "index.js",
   "dependencies": {
-    "koa": "2.0.0",
+    "koa": "2.8.2",
     "koa-session": "5.8.2",
     "koa-favicon": "2.0.1",
     "koa-router": "7.4.0",
