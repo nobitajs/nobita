@@ -15,7 +15,7 @@ module.exports = {
     type: 'worker', // 指定所有的 worker 都需要执行
     env: ['prod'] // 执行环境
   },
-  async task(ctx) {
+  async task({ctx}) {
     // 定时执行函数
     // ...
   },
@@ -59,7 +59,7 @@ module.exports = {
     cron: '0 0 10 * * *', 
     type: 'worker'
   },
-  async task(ctx) {
+  async task({ctx}) {
     // 定时执行函数
     // ...
     console.log('say');
@@ -72,7 +72,7 @@ module.exports = {
 // app/controllers/test.js
 module.exports = {
   async index() {
-    const ctx = this;
+    const {ctx} = this;
     ctx.schedule.say();
     ...
   }

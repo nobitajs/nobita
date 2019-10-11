@@ -5,6 +5,11 @@
 - 如果发现新的问题无法解决， 欢迎提交 [Nobita issue](https://github.com/nobitajs/nobita/issues)
 - 定期更新
 
+## v0.9.41
+  - 默认使用 koa-router。
+  - 修改 controllers | service | helper | schedule，this指向。
+  - helper 以文件夹形式引用。
+
 ## v0.9.38
   - 修复 sequelize 大小写问题。
   - 修复 mongo delete 方法。

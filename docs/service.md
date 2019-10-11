@@ -19,7 +19,7 @@ app/service/test_b.js => ctx.service.test_b
 module.exports = app => { 
   return {
     async getName() {
-      // ... this => ctx
+      // ... this => { ctx }
     }
   }
 }

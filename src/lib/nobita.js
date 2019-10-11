@@ -8,8 +8,7 @@ const path = require('path');
 const merge = require('lodash/merge');
 const requireJS = require('nobita-require');
 const init = require('nobita-init');
-const Router = require('nobita-router');
-const Controllers = require('nobita-controllers');
+const router = new require('koa-router')();
 const myRouter = requireJS('./app/router.js');
 const ready = requireJS('./ready.js');
 const curl = require('nobita-curl');
@@ -21,15 +20,11 @@ class Nobita extends Koa {
   constructor(options = {}) {
     super();
     this.options = options;
+    this.quoteContext = {
+      ctx: this.context
+    };
+    this.router = router;
     this.start();
-  };
-
-  get controllers() {
-    return Controllers;
-  };
-
-  get router() {
-    return Router;
   };
 
   get _context() {
@@ -53,9 +48,8 @@ class Nobita extends Koa {
     require('nobita-mysql')(this);
     require('nobita-session-redis')(this);
     require('nobita-schedule')(this);
+    await require('nobita-loader')(this);
     const compose = require('nobita-middleware')(this);
-    const service = await require('nobita-service')(this);
-    const nobitaHelper = require('nobita-helper')(this);
     myRouter && myRouter(this);
 
     /** 静态资源路径 */
@@ -72,16 +66,11 @@ class Nobita extends Koa {
       .use(koaBody(this.config.koaBody))
       .use(xss)
       .use(init)
-      .use(nobitaHelper)
-      .use(service)
       .use(compose)
-      .use(Router.routes());
+      .use(router.routes())
+      .use(router.allowedMethods());
 
-    const server = this.listen(this.config.listen.port, this.config.listen.callback);
-  }
-
-  createAnonymousContext(){
-    return this.context;
+    this.listen(this.config.listen.port);
   }
 
 }

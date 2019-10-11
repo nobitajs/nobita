@@ -33,10 +33,10 @@ module.exports = {
 - Helper 函数用来提供一些实用的 utility 函数。
 
 ```js
-// app/extend/helper.js
+// app/extend/helper/test.js
 module.exports = {
   sum(a, b) {
-    // this 就是 ctx 对象，在其中可以调用 ctx 上的其他方法，或访问属性
+    // this 里包含 ctx 对象，在其中可以调用 ctx 上的其他方法，或访问属性
     return a + b;
   },
 };
@@ -49,7 +49,7 @@ module.exports = {
 module.exports = {
   async get() {
     const ctx = this;
-    ctx.helper.sum(1, 2); // 直接调用
+    ctx.helper.test.sum(1, 2); // 直接调用
   }
 }
 ```

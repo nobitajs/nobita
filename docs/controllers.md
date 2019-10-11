@@ -7,7 +7,7 @@
 // app/controllers/index.js
 module.exports = {
   async getName () {
-    const ctx = this;
+    const { ctx } = this;
     ctx.body = 'Hello Nobita!';
   }
 }
