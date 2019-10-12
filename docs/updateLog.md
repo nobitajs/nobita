@@ -5,10 +5,15 @@
 - 如果发现新的问题无法解决， 欢迎提交 [Nobita issue](https://github.com/nobitajs/nobita/issues)
 - 定期更新
 
-## v0.9.41
+
+## v0.9.46
+  - 增加 query body headers 与 response 的校验。
+
+## v0.9.42
   - 默认使用 koa-router。
   - 修改 controllers | service | helper | schedule，this指向。
   - helper 以文件夹形式引用。
+  - 增加非200状态码的catch。
 
 ## v0.9.38
   - 修复 sequelize 大小写问题。
