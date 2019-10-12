@@ -36,3 +36,62 @@ module.exports = app => {
   app.router.get('/', schema, app.controllers.index.index);
 };
 ```
+
+设置ajv参数：
+```js
+// ./config/config.*.js
+
+exports.ajv = {
+  useDefaults: true,
+  // ...
+};
+```
+
+[options]
+```
+{
+  // validation and reporting options:
+  $data:            false,
+  allErrors:        false,
+  verbose:          false,
+  $comment:         false, // NEW in Ajv version 6.0
+  jsonPointers:     false,
+  uniqueItems:      true,
+  unicode:          true,
+  nullable:         false,
+  format:           'fast',
+  formats:          {},
+  unknownFormats:   true,
+  schemas:          {},
+  logger:           undefined,
+  // referenced schema options:
+  schemaId:         '$id',
+  missingRefs:      true,
+  extendRefs:       'ignore', // recommended 'fail'
+  loadSchema:       undefined, // function(uri: string): Promise {}
+  // options to modify validated data:
+  removeAdditional: false,
+  useDefaults:      false,
+  coerceTypes:      false,
+  // strict mode options
+  strictDefaults:   false,
+  strictKeywords:   false,
+  // asynchronous validation options:
+  transpile:        undefined, // requires ajv-async package
+  // advanced options:
+  meta:             true,
+  validateSchema:   true,
+  addUsedSchema:    true,
+  inlineRefs:       true,
+  passContext:      false,
+  loopRequired:     Infinity,
+  ownProperties:    false,
+  multipleOfPrecision: false,
+  errorDataPath:    'object', // deprecated
+  messages:         true,
+  sourceCode:       false,
+  processCode:      undefined, // function (str: string): string {}
+  cache:            new Cache,
+  serialize:        undefined
+}
+```

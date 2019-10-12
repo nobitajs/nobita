@@ -19,6 +19,7 @@
   * [Mongo](mongo)
   * [Mysql](mysql)
   * [Redis](redis)
+  * [验证和序列化](verify)
   * [扩展](extend)
   * [定时任务](schedule)
   * [异常处理](catch)
