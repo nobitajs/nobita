@@ -8,7 +8,7 @@ const path = require('path');
 const merge = require('lodash/merge');
 const requireJS = require('nobita-require');
 const init = require('nobita-init');
-const router = new require('koa-router')();
+const router = require('nobita-router');
 const myRouter = requireJS('./app/router.js');
 const ready = requireJS('./ready.js');
 const curl = require('nobita-curl');
@@ -67,8 +67,8 @@ class Nobita extends Koa {
       .use(xss)
       .use(init)
       .use(compose)
-      .use(router.routes())
-      .use(router.allowedMethods());
+      .use(this.router.routes())
+      .use(this.router.allowedMethods());
 
     this.listen(this.config.listen.port);
   }
