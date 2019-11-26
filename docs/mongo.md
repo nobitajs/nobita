@@ -93,6 +93,7 @@ find - [options]
 - page  (number)： 默认为0。查询页码。
 - sort  (object)： 排序条件
 - filter (object)：过滤输出字段
+- lean {boolean}：输出结果是否javascript对象。
 
 ## findOne
 - 查询一条数据
@@ -101,7 +102,7 @@ find - [options]
 module.exports = {
   async get() {
     const ctx = this;
-    const res = await ctx.db.database.findOne({ name: 'Nobita' });
+    const res = await ctx.db.database.findOne({ name: 'Nobita' }, [options]);
     ctx.body = res;
   }
 }

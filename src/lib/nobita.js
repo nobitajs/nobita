@@ -8,8 +8,8 @@ const path = require('path');
 const merge = require('lodash/merge');
 const requireJS = require('nobita-require');
 const init = require('nobita-init');
+const router = new require('koa-router')();
 const myRouter = requireJS('./app/router.js');
-const ready = requireJS('./ready.js');
 const curl = require('nobita-curl');
 const xss = require('nobita-xss');
 const catchError = require('nobita-catch');
@@ -22,7 +22,7 @@ class Nobita extends Koa {
     this.quoteContext = {
       ctx: this.context
     };
-    this.router = require('nobita-router')(this);
+    this.router = router;
     this.start();
   };
 
@@ -37,11 +37,10 @@ class Nobita extends Koa {
   }
 
   async start() {
-    this.options.before && this.options.before(this);
+    this.emit('configWillLoad', this);
     try { this.Sequelize = require('sequelize'); } catch (e) { }
     await require('nobita-config')(this);
     this.context = this._context;
-    const ajv = require('nobita-ajv')(this);
     require('nobita-nunjucks')(this);
     require('nobita-logger')(this);
     require('nobita-mongo')(this);
@@ -57,7 +56,8 @@ class Nobita extends Koa {
       const main = serve(this.config.static.path, this.config.static);
       this.use(main);
     }
-    ready && await ready(this);
+
+    this.emit('didLoad', this);
     this
       .use(favicon(path.join(__dirname, './favicon.ico')))
       .use(catchError)
@@ -65,13 +65,14 @@ class Nobita extends Koa {
       .use(helmet())
       .use(koaBody(this.config.koaBody))
       .use(xss)
-      .use(ajv)
       .use(init)
       .use(compose)
-      .use(this.router.routes())
-      .use(this.router.allowedMethods());
+      .use(router.routes())
+      .use(router.allowedMethods());
 
     this.listen(this.config.listen.port);
+
+    this.emit('serverDidReady', this);
   }
 
 }

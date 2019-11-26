@@ -5,9 +5,13 @@
 - 如果发现新的问题无法解决， 欢迎提交 [Nobita issue](https://github.com/nobitajs/nobita/issues)
 - 定期更新
 
+## v0.9.53
+  - 删除 ready.js 增加 configWillLoad，didLoad，serverDidReady 钩子。
 
-## v0.9.46
+## v0.9.48
   - 增加 query body headers 与 response 的校验。
+  - mongo 增加 {lean: true} 处理查询结果。
+  - fix router 不支持 await async问题。
 
 ## v0.9.42
   - 默认使用 koa-router。
