@@ -27,7 +27,7 @@
     "nobita-require": "0.0.3",
     "nobita-config": "0.0.9",
     "nobita-session-redis": "0.0.8",
-    "lodash": "4.17.10"
+    "lodash": "4.17.15"
   },
   "files": [
     "lib"
