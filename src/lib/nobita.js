@@ -46,7 +46,7 @@ class Nobita extends Koa {
     this.context = await Nobita.createAnonymousContext();
     const ajv = require('nobita-ajv')(this);
     require('nobita-schedule')(this);
-    await require('nobita-loader')(this);
+    const loader = await require('nobita-loader')(this);
     const compose = require('nobita-middleware')(this);
     myRouter && await myRouter(this);
 
@@ -64,6 +64,7 @@ class Nobita extends Koa {
       .use(koaBody(this.config.koaBody))
       .use(xss)
       .use(ajv)
+      .use(loader)
       .use(init)
       .use(compose)
       .use(this.router.routes())
